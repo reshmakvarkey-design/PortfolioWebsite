@@ -64,6 +64,13 @@
     animation: fadeInUp 0.6s ease-out;
 }
 
+.hero-logo {
+    height: 7rem;
+    width: auto;
+    margin: 0 auto var(--space-md);
+    animation: fadeInUp 0.8s ease-out backwards;
+}
+
 .hero-title {
     font-size: var(--font-size-6xl);
     font-weight: var(--font-weight-extrabold);
@@ -151,6 +158,16 @@
 .portfolio-section {
     padding: var(--space-5xl) 0;
     position: relative;
+    background-color: var(--color-bg-primary);
+    z-index: 2;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 800px;
+    margin: var(--space-2xl) auto 0;
+    gap: var(--space-4xl);
 }
 
 .section-header {

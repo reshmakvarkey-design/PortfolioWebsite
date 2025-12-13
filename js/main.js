@@ -167,6 +167,10 @@ function initScrollAnimations() {
                     // Add staggered delay for multiple elements
                     setTimeout(() => {
                         entry.target.classList.add('fade-in');
+                        // Clear inline styles to allow CSS to take over
+                        entry.target.style.opacity = '';
+                        entry.target.style.transform = '';
+                        entry.target.style.transition = '';
                     }, index * 100);
 
                     animationObserver.unobserve(entry.target);

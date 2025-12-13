@@ -16,7 +16,7 @@
         content="UI/UX & Product Designer with 10+ years of experience in problem discovery, UX strategy, and data-driven design">
     <meta property="og:image" content="./assets/images/og-image.jpg">
 
-    <title>Reshma KV - UX Designer Portfolio</title>
+    <title>Reshma K V - UX Designer Portfolio</title>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="./css/main.css">
@@ -31,7 +31,7 @@
     <!-- Navigation -->
     <nav class="nav" id="nav">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">Reshma K V</a>
+            <a href="index.html" class="nav-logo"><img src="./assets/images/reshma_logo.avif" alt="Logo"> Reshma K V</a>
 
             <div class="nav-toggle" id="navToggle">
                 <span class="nav-toggle-line"></span>
@@ -50,6 +50,7 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content fade-in">
+            <img src="./assets/images/reshma_logo.avif" alt="Reshma K V Logo" class="hero-logo">
             <h1 class="hero-title">Hi, I'm <span class="gradient-text">Reshma K V</span></h1>
             <p class="hero-subtitle">UI/UX & Product Designer crafting meaningful digital experiences</p>
             <p class="hero-description">
@@ -72,7 +73,6 @@
     <section class="portfolio-section" id="work">
         <div class="container">
             <div class="section-header">
-                <p class="section-label">Portfolio</p>
                 <h2 class="section-title">Featured Projects</h2>
                 <p class="section-description">
                     A collection of UX/UI design projects showcasing my approach to solving complex user problems
@@ -81,127 +81,85 @@
             </div>
 
             <div class="projects-grid">
-                <!-- Project Card 1: Marine -->
-                <article class="project-card glass" onclick="window.location.href='marine-insurance.html'"
+                <!-- Project Card 1: AI powered Pharma Submissions -->
+                <article class="project-card framed glass" onclick="window.location.href='pharma-submissions.html'"
                     style="cursor: pointer;">
                     <div class="project-card-image">
-                        <img src="./assets/images/marine-thumb.png" alt="Marine Insurance Solution" loading="lazy">
+                        <img src="./assets/images/projects/PharmaSubmissionRep.jpg" alt="AI powered Pharma Submissions"
+                            loading="lazy">
+                        <div class="project-card-overlay"></div>
+                    </div>
+                    <div class="project-card-content">
+                        <div class="project-card-tags">
+                            <span class="project-tag">AI</span>
+                            <span class="project-tag">Pharma</span>
+                            <span class="project-tag">SaaS</span>
+                        </div>
+                        <h3 class="project-card-title">AI powered Pharma Submissions</h3>
+                        <p class="project-card-description">
+                            Revolutionizing regulatory submissions in Pharmaceutical industry with AI
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Project Card 2: Enterprise Search for Clinical and Pharma R&D -->
+                <article class="project-card framed glass"
+                    onclick="window.location.href='pharma-enterprise-search.html'" style="cursor: pointer;">
+                    <div class="project-card-image">
+                        <img src="./assets/images/projects/EnterpriseSearchPharma.jpg" alt="Pharma Enterprise Search"
+                            loading="lazy">
+                        <div class="project-card-overlay"></div>
+                    </div>
+                    <div class="project-card-content">
+                        <div class="project-card-tags">
+                            <span class="project-tag">Enterprise</span>
+                            <span class="project-tag">Search</span>
+                            <span class="project-tag">Pharma</span>
+                        </div>
+                        <h3 class="project-card-title">Enterprise Search for Clinical and Pharma R&D</h3>
+                        <p class="project-card-description">
+                            Enterprise search experience that enables pharma teams to quickly discover and trust data
+                            across clinical studies and the entire drug development lifecycle.
+                        </p>
+                    </div>
+                </article>
+
+                <!-- Project Card 3: Marine Insurance -->
+                <article class="project-card framed glass" onclick="window.location.href='marine-insurance.html'"
+                    style="cursor: pointer;">
+                    <div class="project-card-image">
+                        <img src="./assets/images/projects/MarineInsurance.avif" alt="Marine Insurance" loading="lazy">
                         <div class="project-card-overlay"></div>
                     </div>
                     <div class="project-card-content">
                         <div class="project-card-tags">
                             <span class="project-tag">Blockchain</span>
-                            <span class="project-tag">UX/UI</span>
+                            <span class="project-tag">Fintech</span>
                             <span class="project-tag">Web App</span>
                         </div>
                         <h3 class="project-card-title">Marine Insurance</h3>
                         <p class="project-card-description">
-                            A blockchain-based solution streamlining the complicated workflow of marine insurance for
-                            insurers and brokers.
+                            Digital product design for blockchain based marine insurance solution.
                         </p>
                     </div>
                 </article>
 
-                <!-- Project Card 2: Travel with Jane -->
-                <article class="project-card glass" onclick="window.location.href='jane-travel.html'"
+                <!-- Project Card 4: Travel with Jane -->
+                <article class="project-card framed glass" onclick="window.location.href='jane-travel.html'"
                     style="cursor: pointer;">
                     <div class="project-card-image">
-                        <img src="./assets/images/jane-thumb.png" alt="Travel with Jane" loading="lazy">
+                        <img src="./assets/images/projects/TravelWithJane.avif" alt="Travel with Jane" loading="lazy">
                         <div class="project-card-overlay"></div>
                     </div>
                     <div class="project-card-content">
                         <div class="project-card-tags">
-                            <span class="project-tag">Insurance</span>
-                            <span class="project-tag">Web Design</span>
-                            <span class="project-tag">Start-up</span>
+                            <span class="project-tag">Travel</span>
+                            <span class="project-tag">Mobile App</span>
+                            <span class="project-tag">UX</span>
                         </div>
                         <h3 class="project-card-title">Travel with Jane</h3>
                         <p class="project-card-description">
-                            Design for an Australian boutique travel insurance start-up focusing on user-friendly
-                            purchasing flow.
-                        </p>
-                    </div>
-                </article>
-
-                <!-- Project Card 3: Open Banking -->
-                <article class="project-card glass" onclick="window.location.href='open-banking.html'"
-                    style="cursor: pointer;">
-                    <div class="project-card-image">
-                        <img src="./assets/images/banking-thumb.png" alt="Open Banking Solution" loading="lazy">
-                        <div class="project-card-overlay"></div>
-                    </div>
-                    <div class="project-card-content">
-                        <div class="project-card-tags">
-                            <span class="project-tag">Fintech</span>
-                            <span class="project-tag">SaaS</span>
-                            <span class="project-tag">Dashboard</span>
-                        </div>
-                        <h3 class="project-card-title">Open Banking Solution</h3>
-                        <p class="project-card-description">
-                            A safe, secure, and compliant open banking platform for managing third-party providers and
-                            account information.
-                        </p>
-                    </div>
-                </article>
-
-                <!-- Project Card 4: Leather Goods -->
-                <article class="project-card glass" onclick="window.location.href='leather-goods.html'"
-                    style="cursor: pointer;">
-                    <div class="project-card-image">
-                        <img src="./assets/images/leather-thumb.png" alt="Leather Goods E-commerce" loading="lazy">
-                        <div class="project-card-overlay"></div>
-                    </div>
-                    <div class="project-card-content">
-                        <div class="project-card-tags">
-                            <span class="project-tag">E-commerce</span>
-                            <span class="project-tag">Web Design</span>
-                        </div>
-                        <h3 class="project-card-title">Leather Goods</h3>
-                        <p class="project-card-description">
-                            E-commerce solution for a premium leather goods brand, focusing on showcasing craftsmanship
-                            and seamless checkout.
-                        </p>
-                    </div>
-                </article>
-
-                <!-- Project Card 5: Heuristic Evaluation -->
-                <article class="project-card glass" onclick="window.location.href='heuristic-eval.html'"
-                    style="cursor: pointer;">
-                    <div class="project-card-image">
-                        <img src="./assets/images/heuristic-thumb.jpg" alt="Heuristic Evaluation" loading="lazy">
-                        <div class="project-card-overlay"></div>
-                    </div>
-                    <div class="project-card-content">
-                        <div class="project-card-tags">
-                            <span class="project-tag">Research</span>
-                            <span class="project-tag">Mobile App</span>
-                            <span class="project-tag">Audit</span>
-                        </div>
-                        <h3 class="project-card-title">Heuristic Evaluation</h3>
-                        <p class="project-card-description">
-                            Usability audit of the 'Speed-l' app identifying key issues and recommending UX
-                            improvements.
-                        </p>
-                    </div>
-                </article>
-
-                <!-- Project Card 6: Mobility Management -->
-                <article class="project-card glass" onclick="window.location.href='mobility-management.html'"
-                    style="cursor: pointer;">
-                    <div class="project-card-image">
-                        <img src="./assets/images/mobility-thumb.png" alt="Mobility Management" loading="lazy">
-                        <div class="project-card-overlay"></div>
-                    </div>
-                    <div class="project-card-content">
-                        <div class="project-card-tags">
-                            <span class="project-tag">Smart City</span>
-                            <span class="project-tag">Management</span>
-                            <span class="project-tag">System Design</span>
-                        </div>
-                        <h3 class="project-card-title">Mobility Management</h3>
-                        <p class="project-card-description">
-                            A comprehensive system for city administration to manage parking and mobility solutions
-                            efficiently.
+                            Jane is a free travel app for booking trips, activities, and pocket Wi-Fi in one place.
                         </p>
                     </div>
                 </article>
