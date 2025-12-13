@@ -122,10 +122,8 @@ class WireframeCarousel {
     }
 }
 
-/**
- * Lightbox Component
- * Handles full-screen image viewing with navigation
- */
+// Lightbox Component
+// Handles full-screen image viewing with navigation
 
 let lightboxImages = [];
 let lightboxCurrentIndex = 0;
@@ -138,6 +136,7 @@ const lightboxNext = document.getElementById('lightboxNext');
 const lightboxCounter = document.getElementById('lightboxCounter');
 
 function openLightbox(images, startIndex = 0) {
+    if (!lightbox) return;
     lightboxImages = images;
     lightboxCurrentIndex = startIndex;
     updateLightbox();
@@ -146,17 +145,19 @@ function openLightbox(images, startIndex = 0) {
 }
 
 function closeLightbox() {
+    if (!lightbox) return;
     lightbox.classList.remove('active');
     document.body.style.overflow = ''; // Restore scrolling
 }
 
 function updateLightbox() {
+    if (!lightboxImage || !lightboxCounter) return;
     lightboxImage.src = lightboxImages[lightboxCurrentIndex];
     lightboxCounter.textContent = `${lightboxCurrentIndex + 1} / ${lightboxImages.length}`;
 
     // Update button states
-    lightboxPrev.disabled = lightboxCurrentIndex === 0;
-    lightboxNext.disabled = lightboxCurrentIndex === lightboxImages.length - 1;
+    if (lightboxPrev) lightboxPrev.disabled = lightboxCurrentIndex === 0;
+    if (lightboxNext) lightboxNext.disabled = lightboxCurrentIndex === lightboxImages.length - 1;
 }
 
 function prevLightboxImage() {
@@ -173,36 +174,64 @@ function nextLightboxImage() {
     }
 }
 
-// Lightbox event listeners
-lightboxClose.addEventListener('click', closeLightbox);
-lightboxPrev.addEventListener('click', prevLightboxImage);
-lightboxNext.addEventListener('click', nextLightboxImage);
+// Lightbox event listeners - Only attach if elements exist
+if (lightbox) {
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+    if (lightboxPrev) lightboxPrev.addEventListener('click', prevLightboxImage);
+    if (lightboxNext) lightboxNext.addEventListener('click', nextLightboxImage);
 
-// Close lightbox when clicking outside the image
-lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
-        closeLightbox();
-    }
-});
+    // Close lightbox when clicking outside the image
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
 
-// Keyboard navigation for lightbox
-document.addEventListener('keydown', (e) => {
-    if (!lightbox.classList.contains('active')) return;
+    // Keyboard navigation for lightbox
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
 
-    if (e.key === 'Escape') {
-        closeLightbox();
-    } else if (e.key === 'ArrowLeft') {
-        prevLightboxImage();
-    } else if (e.key === 'ArrowRight') {
-        nextLightboxImage();
-    }
-});
+        if (e.key === 'Escape') {
+            closeLightbox();
+        } else if (e.key === 'ArrowLeft') {
+            prevLightboxImage();
+        } else if (e.key === 'ArrowRight') {
+            nextLightboxImage();
+        }
+    });
+}
 
-// Initialize carousels when DOM is ready
+/**
+ * Sets up lightbox for all project images (generic implementation)
+ */
+function setupProjectLightbox() {
+    // Select all images that should be zoomable
+    // Includes hero image and project content images
+    const images = document.querySelectorAll('.project-hero-image img, .project-image, .about-image');
+    if (images.length === 0) return;
+
+    const imageSources = Array.from(images).map(img => img.src);
+
+    images.forEach((img, index) => {
+        img.style.cursor = 'zoom-in'; // Indicate clickability
+        img.addEventListener('click', () => {
+            openLightbox(imageSources, index);
+        });
+    });
+}
+
+// Initialize carousels and lightbox when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize Low Fidelity carousel
-    const lfCarousel = new WireframeCarousel('lfCarousel');
+    // Initialize Low Fidelity carousel (if exists)
+    if (document.getElementById('lfCarousel')) {
+        new WireframeCarousel('lfCarousel');
+    }
 
-    // Initialize High Fidelity carousel
-    const hfCarousel = new WireframeCarousel('hfCarousel');
+    // Initialize High Fidelity carousel (if exists)
+    if (document.getElementById('hfCarousel')) {
+        new WireframeCarousel('hfCarousel');
+    }
+
+    // Initialize generic project lightbox
+    setupProjectLightbox();
 });
