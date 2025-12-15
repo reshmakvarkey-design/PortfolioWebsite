@@ -351,6 +351,16 @@
     background: var(--color-bg-tertiary);
 }
 
+.project-hero-image.framed-thin {
+    background: #E5E5E5;
+    padding: 1px;
+}
+
+.project-hero-image.framed-thin img {
+    border-radius: var(--radius-xl);
+    background: var(--color-bg-tertiary);
+}
+
 .project-content {
     max-width: 800px;
     margin: 0 auto;
@@ -381,6 +391,20 @@
 .project-image.framed {
     background: var(--gradient-primary);
     padding: 4px;
+}
+
+.project-image.framed-thin {
+    background: #E5E5E5;
+    padding: 1px;
+}
+
+.project-card.framed-thin {
+    background: #E5E5E5;
+    padding: 1px;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
 }
 
 /* ===================================
