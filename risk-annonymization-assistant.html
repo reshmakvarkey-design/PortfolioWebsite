@@ -70,7 +70,14 @@
             </p>
             <p>
                 This case study showcases the design of an AI-guided anonymization experience for pharma data teams,
-                turning a complex, risky workflow into an AI-orchestrated, human-in-the-loop experience.
+                guide users through the complex decision-making process of risk assessment, strategy selection, and
+                validation.
+            </p>
+            <p>
+                This case study showcases the design of an AI-guided anonymization experience for pharma data teams,
+                turning a complex, risky workflow into an AI-orchestrated, human-in-the-loop experience. The design
+                emphasizes how the AI agent guides, explains, and collaborates with experts through high-stakes
+                decisions.
             </p>
         </div>
 
@@ -115,140 +122,448 @@
         <div class="project-section">
             <h3>User Roles and Needs</h3>
             <div class="mt-md">
-                <p><strong>Data Engineer:</strong> Prepares and uploads clinical or operational datasets for
-                    anonymization.</p>
-                <p class="mt-sm"><strong>Transparency Team:</strong> Owns disclosure and anonymization; reviews risk
-                    strategies.</p>
-                <p class="mt-sm"><strong>Data Governance Lead:</strong> Defines policies, risk thresholds, and monitors
-                    compliance.</p>
-            </div>
-        </div>
+                <div class="mt-md">
+                    <h4>Data Engineer</h4>
+                    <ul class="list-disc pl-5 mt-sm">
+                        <li>Prepares and uploads clinical or operational datasets for anonymisation, ensuring schema and
+                            metadata are correct.</li>
+                    </ul>
 
-        <div class="project-section">
-            <h3>UX Approach</h3>
-            <ul class="list-disc pl-5 mt-sm">
-                <li><strong>Discovery:</strong> Mapped the current journey, interviewed data engineers and transparency
-                    teams.</li>
-                <li><strong>Definition:</strong> Defined key workflows and the data transaction between user and agents.
-                </li>
-                <li><strong>Design:</strong> Designed a conversational, stepwise flow orchestrated by an AI agent.</li>
-                <li><strong>Validation:</strong> Ran walkthroughs with target users using realistic datasets.</li>
-            </ul>
-        </div>
+                    <h4 class="mt-md">Transparency Team</h4>
+                    <ul class="list-disc pl-5 mt-sm">
+                        <li>Owns disclosure and anonymization of data for publications, regulatory transparency, and
+                            external sharing.</li>
+                        <li>Uses the platform to assess re‑identification risk, approve anonymisation strategies, and
+                            ensure
+                            outputs meet transparency and compliance requirements.</li>
+                        <li>Collaborates with the agent to confirm quasi‑identifiers, review anonymisation rules, and
+                            verify
+                            that analytics usability is preserved.</li>
+                    </ul>
 
-        <div class="project-section">
-            <h3>Persona</h3>
-            <img src="./assets/images/risk_annonymization_assistant/3-Persona.png" alt="User Persona"
-                class="project-image framed-thin mt-md">
-        </div>
-
-        <div class="project-section">
-            <h3>Proposed Solution</h3>
-            <p>
-                A platform that adds intelligent pre-processing: context awareness, automated risk profiling, and an AI
-                agent to compute re-identification risk and suggest anonymization strategies.
-            </p>
-
-            <h4 class="mt-md">Agentic UX Journey Mapping</h4>
-            <p>
-                Reimagining traditional user journeys by layering in AI agent behaviors, decision autonomy, and dynamic
-                orchestration alongside human actions.
-            </p>
-            <img src="./assets/images/risk_annonymization_assistant/4-JourneyMapping.png"
-                alt="Agentic UX Journey Mapping" class="project-image framed-thin mt-md">
-        </div>
-
-        <div class="project-section">
-            <h3>Conversational UX</h3>
-            <p>
-                Translating rigid workflows into natural, agent-led dialogues.
-            </p>
-
-            <div class="chat-flow mt-md">
-                <!-- Step 1 -->
-                <div class="mb-lg">
-                    <h4>Request Initiation</h4>
-                    <p><strong>User:</strong> Initiates anonymization request with Dataset ID.</p>
-                    <p><strong>Agent:</strong> "Hello! I'm here to assist you with risk-based anonymization. I'll guide
-                        you in calculating data risk and suggest strategies to mitigate those risks."</p>
-                </div>
-
-                <!-- Step 2-3 -->
-                <div class="mb-lg">
-                    <h4>Discovery & Detection</h4>
-                    <p><strong>Agent:</strong> Detects files and automatically identifies Quasi-Identifiers (Age,
-                        Location, Condition).</p>
-                    <p><strong>User:</strong> Reviews and accepts detected identifiers.</p>
-                </div>
-
-                <!-- Step 4-5 -->
-                <div class="mb-lg">
-                    <h4>Context & Risk Configuration</h4>
-                    <p><strong>Agent:</strong> "Can you please provide the data sharing scope and portal details?"</p>
-                    <p><strong>User:</strong> Selects scope (e.g., External) and sets Risk Threshold (e.g., 0.2).</p>
-                </div>
-
-                <!-- Step 6-7 -->
-                <div class="mb-lg">
-                    <h4>Risk Calculation & Report</h4>
-                    <p><strong>Agent:</strong> Calculates risk (0.21) -> EXCEEDS THRESHOLD (0.20).</p>
-                    <p><strong>User:</strong> Reviews risk report and requests mitigation strategies.</p>
-                </div>
-
-                <!-- Step 8-9 -->
-                <div class="mb-lg">
-                    <h4>Strategy & Utility</h4>
-                    <p><strong>Agent:</strong> Proposes strategies: Keep Age, Generalize Location, Remove Condition.
-                        "Data Utility Loss: 23%."</p>
-                    <p><strong>User:</strong> Evaluates trade-off and proceeds.</p>
-                </div>
-
-                <!-- Step 10-12 -->
-                <div class="mb-lg">
-                    <h4>Execution & Verification</h4>
-                    <p><strong>Agent:</strong> Executes rules, creates new dataset, and recalculates risk (New Risk:
-                        0.09).</p>
-                    <p><strong>User:</strong> Reviews summary: "Original Risk: 0.21, Post-Anonymization Risk: 0.09.
-                        Status: WITHIN ACCEPTABLE THRESHOLD."</p>
+                    <h4 class="mt-md">Data Governance Lead / Research Data Manager</h4>
+                    <ul class="list-disc pl-5 mt-sm">
+                        <li>Defines policies for acceptable risk thresholds and sharing contexts (internal, external,
+                            public) and configures them in the platform.</li>
+                        <li>Monitors all anonymisation requests, reviews audit trails, and ensures that data sharing
+                            aligns
+                            with organisational governance and regulatory standards.</li>
+                    </ul>
                 </div>
             </div>
-        </div>
 
-        <div class="project-section">
-            <h3>Agentic UX Design Patterns</h3>
-            <ul class="list-disc pl-5 mt-sm">
-                <li><strong>Conversational Workflow Orchestration:</strong> Agent guides users through steps using
-                    natural language.</li>
-                <li><strong>Progressive Disclosure:</strong> Information revealed sequentially (Identification -> Risk
-                    -> Mitigation).</li>
-                <li><strong>Transparent Execution Tracking:</strong> Persistent sidebars or checklists to show workflow
-                    state.</li>
-                <li><strong>Risk Visualization:</strong> Gauge-style visuals (Green/Yellow/Red) for immediate feedback.
-                </li>
-            </ul>
-        </div>
+            <div class="project-section">
+                <h3>UX Approach</h3>
+                <ul class="list-disc pl-5 mt-sm">
+                    <li><strong>Discovery:</strong> Mapped the current journey, interviewed data engineers and
+                        transparency
+                        teams.</li>
+                    <li><strong>Definition:</strong> Defined key workflows and the data transaction between user and
+                        agents.
+                    </li>
+                    <li><strong>Design:</strong> Designed a conversational, stepwise flow orchestrated by an AI agent.
+                    </li>
+                    <li><strong>Validation:</strong> Ran walkthroughs with target users using realistic datasets.</li>
+                </ul>
+            </div>
 
-        <div class="project-section">
-            <h3>Success Metrics & Impact</h3>
-            <div class="project-stats mt-md">
-                <div class="stat-item">
-                    <span class="stat-number">85%</span>
-                    <span class="stat-label">Time Reduction</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">&lt;2%</span>
-                    <span class="stat-label">Error Rate</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number">95%</span>
-                    <span class="stat-label">Detection Accuracy</span>
+            <div class="project-section">
+                <h3>Persona</h3>
+                <img src="./assets/images/risk_annonymization_assistant/3-Persona.png" alt="User Persona"
+                    class="project-image framed-thin mt-md">
+            </div>
+
+            <div class="project-section">
+                <h3>Proposed Solution</h3>
+                <p>
+                    A platform adds intelligent pre-processing: profile data, calculate risks, incorporate context, then
+                    invoke the existing service with tailored rules.
+                </p>
+                <ul class="list-disc pl-5 mt-sm">
+                    <li>Dataset upload and automated profiling for quasi-identifiers (e.g., age, location, rare codes).
+                    </li>
+                    <li>User sets sharing context and risk threshold via sliders/selector.</li>
+                    <li>AI agent computes re-identification risk with visual gauge (green/yellow/red).</li>
+                    <li>Generate optimised anonymisation rules explaining privacy-utility trade-offs.</li>
+                    <li>Invoke existing service with rules, followed by before/after verification and audit log.</li>
+                </ul>
+
+                <h4 class="mt-md">Agentic UX Journey Mapping</h4>
+                <p>
+                    Reimagining traditional user journeys by layering in AI agent behaviors, decision autonomy, and
+                    dynamic
+                    orchestration alongside human actions.
+                </p>
+                <img src="./assets/images/risk_annonymization_assistant/4-JourneyMapping.png"
+                    alt="Agentic UX Journey Mapping" class="project-image framed-thin mt-md">
+            </div>
+
+            <div class="project-section">
+                <h3>Conversational UX</h3>
+                <p>
+                    Translating rigid workflows into natural, agent-led dialogues.
+                </p>
+
+                <div class="chat-flow mt-md">
+                    <h4 class="mb-sm">Step 1: Request Initiation</h4>
+                    <div class="mb-lg">
+                        <p><strong>Actor:</strong> User</p>
+                        <p><strong>Action:</strong> User initiates anonymization request by providing Dataset ID</p>
+                        <p><strong>System:</strong> Agent acknowledges request and explains the workflow</p>
+                        <p class="mt-xs"><em>Agent Message: "Hello! I'm here to assist you with risk-based
+                                anonymization.
+                                I'll guide you in calculating data risk and suggest strategies to mitigate those
+                                risks."</em></p>
+                    </div>
+
+                    <h4 class="mb-sm">Step 2: Data Selection</h4>
+                    <div class="mb-lg">
+                        <p><strong>Actor:</strong> Agent</p>
+                        <p><strong>Action:</strong> Agent detects available data folders/files for the dataset</p>
+                        <p><strong>System:</strong> Displays available options with metadata</p>
+                        <p><strong>Actor:</strong> User</p>
+                        <p><strong>Action:</strong> User selects target data to anonymize</p>
+                    </div>
+
+                    <h4 class="mb-sm">Step 3: Quasi-Identifier Detection</h4>
+                    <div class="mb-lg">
+                        <p><strong>Actor:</strong> Agent</p>
+                        <p><strong>Action:</strong> Agent analyzes selected data and automatically detects
+                            quasi-identifiers
+                        </p>
+                        <p><strong>System:</strong> Presents detected identifiers with metadata:</p>
+                        <ul class="list-disc pl-5 mt-xs">
+                            <li>Age (demographics table)</li>
+                            <li>Geographic Location (demographics table)</li>
+                            <li>Medical Condition Code (health records table)</li>
+                        </ul>
+                        <p class="mt-xs"><strong>Actor:</strong> User</p>
+                        <p><strong>Action:</strong> Reviews and accepts detected quasi-identifiers</p>
+                        <p><strong>Button:</strong> "Accept"</p>
+                    </div>
+
+                    <h4 class="mb-sm">Step 4: Data Sharing Context Configuration</h4>
+                    <div class="mb-lg">
+                        <p><strong>Actor:</strong> Agent</p>
+                        <p><strong>Action:</strong> Agent requests data sharing context parameters</p>
+                        <p><strong>System:</strong> Displays configuration options:</p>
+                        <ul class="list-disc pl-5 mt-xs">
+                            <li>Sharing scope: Internal Use / External-Collaborator / Public</li>
+                            <li>Access type: Secure Portal / Non-Secure Portal</li>
+                        </ul>
+                        <p class="mt-xs"><strong>Actor:</strong> User</p>
+                        <p><strong>Action:</strong> Selects appropriate sharing context</p>
+                        <p class="mt-xs"><em>Agent Response: "Can you please provide the data sharing scope and sharing
+                                portal details"</em></p>
+                    </div>
+
+                    <h4 class="mb-sm">Step 5: Risk Threshold Configuration</h4>
+                    <div class="mb-lg">
+                        <p><strong>Actor:</strong> Agent</p>
+                        <p><strong>Action:</strong> Prompts user to set acceptable re-identification risk threshold</p>
+                        <p><strong>System:</strong> Displays slider interface (range: 0 to 1)</p>
+                        <p><strong>Actor:</strong> User</p>
+                        <p><strong>Action:</strong> Sets risk threshold based on data sensitivity and use case</p>
+                        <p><strong>Default Value:</strong> 0.2 (configurable based on organizational policy)</p>
+                        <p><strong>Button:</strong> "Proceed"</p>
+                    </div>
+
+                    <h4 class="mb-sm">Step 6: Automated Risk Calculation</h4>
+                    <div class="mb-lg">
+                        <p><strong>Actor:</strong> Agent</p>
+                        <p><strong>Action:</strong> Executes risk calculation based on detected quasi-identifiers and
+                            context</p>
+                        <p><strong>System:</strong> Computes re-identification risk using statistical methods</p>
+                        <p><strong>Display:</strong> Risk gauge visualization showing:</p>
+                        <ul class="list-disc pl-5 mt-xs">
+                            <li>Calculated Risk: 0.21</li>
+                            <li>Risk Threshold: 0.20</li>
+                            <li>Status: EXCEEDS THRESHOLD (risk mitigation required)</li>
+                        </ul>
+                        <p class="mt-xs"><strong>Options:</strong></p>
+                        <ul class="list-disc pl-5 mt-xs">
+                            <li>"View Risk Report" - Detailed risk analysis</li>
+                            <li>"View Sample Data" - Preview of data structure</li>
+                            <li>"Accept" or "Show Risk Mitigation"</li>
+                        </ul>
+                    </div>
+
+                    <h4 class="mb-sm">Step 7: Risk Report Review</h4>
+                    <div class="mb-lg">
+                        <p><strong>Actor:</strong> User</p>
+                        <p><strong>Action:</strong> Reviews comprehensive risk assessment report</p>
+                        <p><strong>System:</strong> Displays:</p>
+                        <ul class="list-disc pl-5 mt-xs">
+                            <li>Individual quasi-identifier risk contributions</li>
+                            <li>Combined re-identification probability</li>
+                            <li>Data distribution statistics</li>
+                            <li>Risk factors and vulnerabilities</li>
+                        </ul>
+                        <p class="mt-xs"><strong>Actor:</strong> User</p>
+                        <p><strong>Decision:</strong> Accept current risk level OR request mitigation strategies</p>
+                        <p><strong>Button:</strong> "Accept" (if risk ≤ threshold) or "Show Risk Mitigation" (if risk >
+                            threshold)</p>
+                    </div>
+
+                    <h4 class="mb-sm">Step 8: AI-Generated Anonymization Recommendations</h4>
+                    <div class="mb-lg">
+                        <p><strong>Actor:</strong> Agent (triggered when risk exceeds threshold)</p>
+                        <p><strong>Action:</strong> Analyzes risk report and autonomously generates anonymization
+                            strategy
+                        </p>
+                        <p class="mt-xs"><em>Agent Message: "Any additional context I need to consider before
+                                calculating
+                                risk of re-identification and proposing anonymization options"</em></p>
+                        <p class="mt-xs"><strong>System:</strong> Presents recommended anonymization functions:</p>
+                        <ul class="list-disc pl-5 mt-xs">
+                            <li>Age: Keep (low risk contributor)</li>
+                            <li>Geographic Location: Change to regional level (generalization)</li>
+                            <li>Medical Condition Code: Remove (high risk, low analytical value)</li>
+                        </ul>
+                        <p class="mt-xs"><strong>Actor:</strong> User</p>
+                        <p><strong>Action:</strong> Reviews proposals; can modify or accept recommendations</p>
+                        <p><strong>Option:</strong> Add custom anonymization rules via "+" button</p>
+                    </div>
+
+                    <h4 class="mb-sm">Step 9: Data Utility Loss Assessment</h4>
+                    <div class="mb-lg">
+                        <p><strong>Actor:</strong> Agent</p>
+                        <p><strong>Action:</strong> Calculates expected data utility loss from proposed anonymization
+                        </p>
+                        <p class="mt-xs"><em>Agent Message: "Please find the method to calculate data utility loss. Do
+                                you
+                                want to continue with re-anonymization?"</em></p>
+                        <p class="mt-xs"><strong>System:</strong> Displays utility loss metric with methodology link</p>
+                        <p><strong>Result:</strong> "Data Utility Loss: 0.23" (23% information reduction)</p>
+                        <p><strong>Actor:</strong> User</p>
+                        <p><strong>Action:</strong> Evaluates privacy-utility trade-off</p>
+                        <p><strong>Button:</strong> "Calculate Risk" (to preview) or "Proceed" (to accept)</p>
+                    </div>
+
+                    <h4 class="mb-sm">Step 10: Re-Anonymization Execution Authorization</h4>
+                    <div class="mb-lg">
+                        <p><strong>Actor:</strong> Agent</p>
+                        <p><strong>Action:</strong> Requests final authorization to execute re-anonymization</p>
+                        <p class="mt-xs"><em>Agent Message: "Would you like me to provide more details on the selected
+                                option or proceed with implementing the anonymization rules?"</em></p>
+                        <p class="mt-xs"><strong>System:</strong> Displays execution summary with:</p>
+                        <ul class="list-disc pl-5 mt-xs">
+                            <li>Selected anonymization rules</li>
+                            <li>Expected final risk level</li>
+                            <li>Data utility impact</li>
+                            <li>Output dataset location</li>
+                        </ul>
+                        <p class="mt-xs"><strong>Actor:</strong> User</p>
+                        <p><strong>Action:</strong> Authorizes execution</p>
+                        <p><strong>Button:</strong> "Re-anonymize"</p>
+                    </div>
+
+                    <h4 class="mb-sm">Step 11: Autonomous Agent Execution</h4>
+                    <div class="mb-lg">
+                        <p><strong>Actor:</strong> Agent</p>
+                        <p><strong>Action:</strong> Applies anonymization rules to dataset autonomously</p>
+                        <p><strong>System:</strong></p>
+                        <ul class="list-disc pl-5 mt-xs">
+                            <li>Executes transformation pipeline</li>
+                            <li>Applies generalization, suppression, and removal operations</li>
+                            <li>Creates new anonymized dataset</li>
+                            <li>Preserves original data unchanged</li>
+                        </ul>
+                        <p class="mt-xs"><strong>Progress:</strong> User sees status updates during execution</p>
+                    </div>
+
+                    <h4 class="mb-sm">Step 12: Post-Anonymization Verification</h4>
+                    <div class="mb-lg">
+                        <p><strong>Actor:</strong> Agent</p>
+                        <p><strong>Action:</strong> Recalculates re-identification risk on anonymized dataset</p>
+                        <p><strong>System:</strong> Displays updated risk assessment with comparison:</p>
+                        <p class="mt-xs"><strong>Risk Assessment Summary:</strong></p>
+                        <ul class="list-disc pl-5 mt-xs">
+                            <li>Original Risk: 0.21</li>
+                            <li>Post-Anonymization Risk: 0.09</li>
+                            <li>Risk Reduction: 57%</li>
+                            <li>Status: WITHIN ACCEPTABLE THRESHOLD ✓</li>
+                        </ul>
+                        <p class="mt-xs"><strong>Options:</strong></p>
+                        <ul class="list-disc pl-5 mt-xs">
+                            <li>"View Risk Report" - Post-anonymization analysis</li>
+                            <li>"View Sample Data" - Preview anonymized data</li>
+                            <li>"View Effective Class Table" - Anonymization transformation summary</li>
+                        </ul>
+                    </div>
+
+                    <h4 class="mb-sm">Step 13: Request Closure and Documentation</h4>
+                    <div class="mb-lg">
+                        <p><strong>Actor:</strong> User</p>
+                        <p><strong>Action:</strong> Reviews final outputs and documentation</p>
+                        <p><strong>System:</strong> Generates complete audit trail including:</p>
+                        <ul class="list-disc pl-5 mt-xs">
+                            <li>All user decisions and approvals</li>
+                            <li>Anonymization rules applied</li>
+                            <li>Risk calculations (before/after)</li>
+                            <li>Data utility metrics</li>
+                        </ul>
+                        <p class="mt-xs"><strong>Actor:</strong> User</p>
+                        <p><strong>Action:</strong> Closes request</p>
+                        <p><strong>Button:</strong> "Close Request"</p>
+                        <p><strong>Final Status:</strong> "Completed Approved"</p>
+                    </div>
                 </div>
             </div>
-            <p class="mt-md">
-                Achieved a 98%+ compliance rate for approved datasets and zero re-identification incidents from
-                anonymized datasets.
-            </p>
-        </div>
+
+            <div class="project-section">
+                <h3>Agentic UX Design Patterns</h3>
+                <div class="mt-md">
+                    <h4>Conversational Workflow Orchestration</h4>
+                    <p>
+                        The agent guides users through complex multi-step processes using natural language, autonomously
+                        determining the next appropriate step based on workflow state and user responses.
+                    </p>
+                    <p class="mt-sm"><strong>Key Features:</strong></p>
+                    <ul class="list-disc pl-5 mt-xs">
+                        <li>Proactive explanation of capabilities and process</li>
+                        <li>Context-aware prompting at each decision point</li>
+                        <li>Natural language interaction reduces learning curve</li>
+                    </ul>
+
+                    <h4 class="mt-lg">Progressive Disclosure</h4>
+                    <p>
+                        Information and options are revealed sequentially based on workflow progression, preventing
+                        cognitive overload.
+                    </p>
+                    <p class="mt-sm"><strong>Implementation:</strong></p>
+                    <ul class="list-disc pl-5 mt-xs">
+                        <li>Stage 1: Dataset identification</li>
+                        <li>Stage 2: Data selection</li>
+                        <li>Stage 3: Quasi-identifier detection</li>
+                        <li>Stage 4: Context configuration</li>
+                        <li>Stage 5: Risk assessment</li>
+                        <li>Stage 6: Mitigation strategy (if needed)</li>
+                        <li>Stage 7: Execution and verification</li>
+                    </ul>
+
+                    <h4 class="mt-lg">Transparent Execution Tracking</h4>
+                    <p>
+                        Left sidebar displays persistent workflow progress checklist:
+                    </p>
+                    <ul class="list-disc pl-5 mt-xs">
+                        <li>✓ Request Initiation</li>
+                        <li>✓ Risk Calculation</li>
+                        <li>✓ Risk Report Available</li>
+                        <li>✓ Anonymization Rule Generation</li>
+                        <li>✓ Re-Anonymization</li>
+                        <li>✓ Re-Anonymization Completed and Risk Report Available</li>
+                    </ul>
+                    <p class="mt-sm"><strong>Benefit:</strong> Users always know their position in the process and what
+                        remains.</p>
+
+                    <h4 class="mt-lg">Risk Visualization</h4>
+                    <p>
+                        Gauge-style visualization provides immediate visual feedback on data safety status:
+                    </p>
+                    <ul class="list-disc pl-5 mt-xs">
+                        <li><strong>Green zone:</strong> Risk below threshold (safe)</li>
+                        <li><strong>Yellow zone:</strong> Risk near threshold (caution)</li>
+                        <li><strong>Red zone:</strong> Risk exceeds threshold (action required)</li>
+                    </ul>
+                    <p class="mt-xs">Displays both calculated risk (0.09) and threshold (0.2) for clear comparison.</p>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h3>Prototype & Design</h3>
+
+                <h4>Low Fidelity Prototype</h4>
+                <div id="lfCarousel" class="wireframe-carousel frameless-container desktop mt-md">
+                    <button class="carousel-btn carousel-btn-prev">‹</button>
+                    <div id="lfTrack" class="carousel-track">
+                        <img src="./assets/images/risk_annonymization_assistant/5-LFWireframe1.png"
+                            alt="Low Fidelity Wireframe 1" class="carousel-image">
+                        <img src="./assets/images/risk_annonymization_assistant/5-LFWireframe2.png"
+                            alt="Low Fidelity Wireframe 2" class="carousel-image">
+                        <img src="./assets/images/risk_annonymization_assistant/5-LFWireframe3.png"
+                            alt="Low Fidelity Wireframe 3" class="carousel-image">
+                    </div>
+                    <button class="carousel-btn carousel-btn-next">›</button>
+                </div>
+                <div id="lfDots" class="carousel-dots"></div>
+
+                <h4 class="mt-xl">High Fidelity Prototype</h4>
+                <div id="hfCarousel" class="wireframe-carousel frameless-container desktop mt-md">
+                    <button class="carousel-btn carousel-btn-prev">‹</button>
+                    <div id="hfTrack" class="carousel-track">
+                        <img src="./assets/images/risk_annonymization_assistant/6-HFWireFrame1.png"
+                            alt="High Fidelity Wireframe 1" class="carousel-image">
+                        <img src="./assets/images/risk_annonymization_assistant/6-HFWireFrame2.png"
+                            alt="High Fidelity Wireframe 2" class="carousel-image">
+                        <img src="./assets/images/risk_annonymization_assistant/6-HFWireFrame3.png"
+                            alt="High Fidelity Wireframe 3" class="carousel-image">
+                    </div>
+                    <button class="carousel-btn carousel-btn-next">›</button>
+                </div>
+                <div id="hfDots" class="carousel-dots"></div>
+            </div>
+
+            <div class="project-section">
+                <h3>Success Metrics & Impact</h3>
+                <h4 class="mt-md">Process Efficiency</h4>
+                <ul class="list-disc pl-5 mt-sm">
+                    <li><strong>Time to completion:</strong> Average 25 minutes (vs. 2-4 hours manual)</li>
+                    <li><strong>Error rate:</strong>
+                        < 2% requests require manual intervention</li>
+                    <li><strong>User satisfaction:</strong> > 4.5/5 rating</li>
+                </ul>
+
+                <h4 class="mt-md">Privacy Outcomes</h4>
+                <ul class="list-disc pl-5 mt-sm">
+                    <li><strong>Risk compliance:</strong> 98%+ of approved datasets below threshold</li>
+                    <li><strong>Re-identification incidents:</strong> Zero from anonymized datasets</li>
+                </ul>
+
+                <h4 class="mt-md">Agent Performance</h4>
+                <ul class="list-disc pl-5 mt-sm">
+                    <li><strong>Recommendation acceptance:</strong> 85%+ accepted without modification</li>
+                    <li><strong>Detection accuracy:</strong> 95%+ quasi-identifiers correctly identified</li>
+                    <li><strong>User intervention:</strong> 80%+ workflows completed with minimal human intervention
+                    </li>
+                </ul>
+
+                <div class="project-stats mt-xl">
+                    <div class="stat-item">
+                        <span class="stat-number">85%</span>
+                        <span class="stat-label">Time Reduction</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">&lt;2%</span>
+                        <span class="stat-label">Error Rate</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">95%</span>
+                        <span class="stat-label">Detection Accuracy</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h3>Glossary</h3>
+                <ul class="list-disc pl-5 mt-sm">
+                    <li><strong>Quasi-identifier:</strong> Data attribute that combined with others could identify
+                        individuals.</li>
+                    <li><strong>Re-identification risk:</strong> Probability that an individual can be uniquely
+                        identified
+                        in dataset.</li>
+                    <li><strong>Data utility loss:</strong> Measure of information reduction due to anonymization.</li>
+                    <li><strong>Risk threshold:</strong> Maximum acceptable re-identification risk for given sharing
+                        context.</li>
+                    <li><strong>Generalization:</strong> Replacing specific values with broader categories (e.g., age →
+                        age
+                        range).</li>
+                    <li><strong>Suppression:</strong> Removing or masking specific values while preserving structure.
+                    </li>
+                    <li><strong>K-anonymity:</strong> Privacy model ensuring each record is indistinguishable from k-1
+                        others.</li>
+                </ul>
+            </div>
     </article>
 
     <!-- Lightbox Modal -->
