@@ -309,14 +309,55 @@
    RESPONSIVE
    =================================== */
 
+/* Project Navigation Spacing */
+.project-nav-buttons {
+    margin-bottom: var(--space-5xl) !important;
+}
+
 @media (max-width: 768px) {
+    .project-nav-buttons {
+        margin-bottom: var(--space-3xl) !important;
+    }
+
     .nav-links {
         display: none;
-        /* Add mobile menu logic later if needed */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--color-bg-primary);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: calc(var(--z-fixed) - 1);
+        padding: var(--space-2xl);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-link {
+        font-size: var(--font-size-2xl);
+        color: var(--color-text-primary);
     }
 
     .nav-toggle {
         display: flex;
+        z-index: var(--z-fixed);
+    }
+
+    .nav-toggle.active .nav-toggle-line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    .nav-toggle.active .nav-toggle-line:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle.active .nav-toggle-line:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
     }
 
     .lightbox-content {
@@ -335,6 +376,15 @@
 
     .lightbox-nav-next {
         right: var(--space-md);
+    }
+
+    .project-nav-buttons .flex {
+        flex-direction: column;
+        gap: var(--space-md);
+    }
+
+    .project-nav-buttons .btn {
+        width: 100%;
     }
 }
 
