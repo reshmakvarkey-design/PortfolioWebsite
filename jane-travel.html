@@ -12,6 +12,140 @@
     <link rel="stylesheet" href="./css/components.css">
     <link rel="stylesheet" href="./css/pages.css">
     <link rel="icon" type="image/svg+xml" href="./assets/icons/favicon.svg">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        border: "hsl(var(--border))",
+                        input: "hsl(var(--input))",
+                        ring: "hsl(var(--ring))",
+                        background: "hsl(var(--background))",
+                        foreground: "hsl(var(--foreground))",
+                        primary: {
+                            DEFAULT: "hsl(var(--primary))",
+                            foreground: "hsl(var(--primary-foreground))",
+                        },
+                        secondary: {
+                            DEFAULT: "hsl(var(--secondary))",
+                            foreground: "hsl(var(--secondary-foreground))",
+                        },
+                        destructive: {
+                            DEFAULT: "hsl(var(--destructive))",
+                            foreground: "hsl(var(--destructive-foreground))",
+                        },
+                        muted: {
+                            DEFAULT: "hsl(var(--muted))",
+                            foreground: "hsl(var(--muted-foreground))",
+                        },
+                        accent: {
+                            DEFAULT: "hsl(var(--accent))",
+                            foreground: "hsl(var(--accent-foreground))",
+                        },
+                        popover: {
+                            DEFAULT: "hsl(var(--popover))",
+                            foreground: "hsl(var(--popover-foreground))",
+                        },
+                        card: {
+                            DEFAULT: "hsl(var(--card))",
+                            foreground: "hsl(var(--card-foreground))",
+                        },
+                    },
+                    borderRadius: {
+                        lg: "var(--radius)",
+                        md: "calc(var(--radius) - 2px)",
+                        sm: "calc(var(--radius) - 4px)",
+                    },
+                    fontFamily: {
+                        display: ["Playfair Display", "serif"],
+                        body: ["Inter", "system-ui", "sans-serif"],
+                    },
+                    backgroundImage: {
+                        'gradient-primary': 'var(--gradient-primary)',
+                        'gradient-hero': 'var(--gradient-hero)',
+                    },
+                    boxShadow: {
+                        'card': 'var(--shadow-card)',
+                        'elevated': 'var(--shadow-elevated)',
+                        'soft': 'var(--shadow-soft)',
+                    }
+                },
+            },
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --background: 210 20% 98%;
+            --foreground: 222 47% 11%;
+            --card: 0 0% 100%;
+            --card-foreground: 222 47% 11%;
+            --popover: 0 0% 100%;
+            --popover-foreground: 222 47% 11%;
+            --primary: 221 83% 53%;
+            --primary-foreground: 0 0% 100%;
+            --secondary: 199 89% 48%;
+            --secondary-foreground: 0 0% 100%;
+            --muted: 210 40% 96%;
+            --muted-foreground: 215 16% 47%;
+            --accent: 174 72% 56%;
+            --accent-foreground: 222 47% 11%;
+            --destructive: 0 84% 60%;
+            --destructive-foreground: 0 0% 100%;
+            --border: 214 32% 91%;
+            --input: 214 32% 91%;
+            --ring: 221 83% 53%;
+            --radius: 0.75rem;
+            --gradient-primary: linear-gradient(135deg, hsl(221 83% 53%) 0%, hsl(199 89% 48%) 50%, hsl(174 72% 56%) 100%);
+            --gradient-hero: linear-gradient(180deg, hsl(221 83% 53%) 0%, hsl(199 89% 48%) 100%);
+            --shadow-soft: 0 4px 20px -4px hsl(221 83% 53% / 0.15);
+            --shadow-card: 0 8px 30px -10px hsl(222 47% 11% / 0.1);
+            --shadow-elevated: 0 20px 50px -15px hsl(221 83% 53% / 0.25);
+        }
+
+        /* Override some existing styles that might conflict */
+        body {
+            font-family: 'Inter', sans-serif !important;
+            background-color: hsl(var(--background)) !important;
+            color: hsl(var(--foreground)) !important;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Playfair Display', serif !important;
+        }
+
+        .text-gradient {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Jane Travel Specific Styles */
+        .jane-hero-container {
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
 </head>
 
 <body class="light-theme">
@@ -31,204 +165,1175 @@
         </div>
     </nav>
 
-    <section class="project-hero">
-        <div class="container">
-            <h1 class="project-hero-title">Travel with Jane</h1>
-            <div class="project-hero-meta">
-                <div class="project-meta-item">
-                    <span class="project-meta-label">Role</span>
-                    <span class="project-meta-value">Experience Designer</span>
-                </div>
-                <div class="project-meta-item">
-                    <span class="project-meta-label">Type</span>
-                    <span class="project-meta-value">Mobile App, Travel</span>
-                </div>
+    <section class="relative min-h-[90vh] overflow-hidden bg-gradient-hero">
+        <!-- Background image with overlay -->
+        <div class="absolute inset-0">
+            <img src="./assets/images/jane_travel/hero-beach.jpg" alt="Tropical beach destination"
+                class="h-full w-full object-cover opacity-30">
+            <div class="absolute inset-0 bg-gradient-to-b from-primary/80 via-secondary/60 to-primary/90"></div>
+        </div>
+
+        <div
+            class="container relative z-10 flex min-h-[90vh] flex-col items-center justify-center px-6 py-20 text-center mx-auto">
+            <div class="mb-4">
+                <span
+                    class="inline-block rounded-full bg-primary-foreground/10 px-4 py-2 text-sm font-medium text-primary-foreground backdrop-blur-sm">
+                    UX Case Study
+                </span>
+            </div>
+
+            <h1
+                class="mb-6 font-display text-5xl font-bold tracking-tight text-primary-foreground md:text-7xl lg:text-8xl">
+                Jane App
+            </h1>
+
+            <p class="mx-auto mb-8 max-w-2xl text-lg text-primary-foreground/90 md:text-xl">
+                Travel Simply With Us — A super app experience offering unlimited internet,
+                hotel bookings, transport, and attractions across 130+ countries
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-4 text-sm text-primary-foreground/80">
+                <span class="rounded-full border border-primary-foreground/30 px-4 py-2">Product Design</span>
+                <span class="rounded-full border border-primary-foreground/30 px-4 py-2">UX Research</span>
+                <span class="rounded-full border border-primary-foreground/30 px-4 py-2">Mobile App</span>
+                <span class="rounded-full border border-primary-foreground/30 px-4 py-2">Web Design</span>
+            </div>
+
+            <div class="mt-12">
+                <img src="./assets/images/jane_travel/app-mockup.png" alt="Jane App interface mockup"
+                    class="mx-auto h-auto max-h-[400px] w-auto drop-shadow-2xl md:max-h-[500px]">
             </div>
         </div>
     </section>
 
-    <article class="project-content">
-        <div class="project-section">
-            <h3>Overview</h3>
-            <p>
-                Jane is a free travel app that allows trip planners to book tickets for transport, attractions and tours
-                via secure payment using credit cards. It allows users to subscribe for pocket wifi for their travel.
-            </p>
-        </div>
-
-        <div class="project-section">
-            <h3>Business Problem</h3>
-            <ul>
-                <li>Provide a super app experience which offers various services under one umbrella</li>
-                <li>Provide the best way to get portable unlimited internet while abroad</li>
-                <li>Offer data connection in 130+ countries backed by leading network providers</li>
-                <li>Give an all-in-one experience where users can book hotel stays, transport, attractions, etc.</li>
-                <li>Provide amazing deals and user reviews during search</li>
-                <li>Promote the use of pocket Wi-Fi from different companies through the application</li>
-            </ul>
-        </div>
-
-        <div class="project-section">
-            <h3>Challenge</h3>
-            <ul>
-                <li>How to provide a unique experience when there are so many travel-based applications available</li>
-                <li>Promoting pocket Wi-Fi along with other promising services</li>
-                <li>The biggest challenge of super apps is that they don't focus on one thing but rather many services
-                </li>
-            </ul>
-        </div>
-
-        <div class="project-section">
-            <h3>Expectations</h3>
-            <ul>
-                <li>Come up with a website design which showcases the features and benefits of the Jane app</li>
-                <li>Along with other services, promote the pocket Wi-Fi</li>
-                <li>Create a clickable prototype of an application and a one-page website</li>
-            </ul>
-        </div>
-
-        <div class="project-section">
-            <h3>Key Application Features</h3>
-            <ul>
-                <li><strong>Internet for travelers:</strong> Portable unlimited internet while abroad with global,
-                    secure, and unlimited data</li>
-                <li><strong>130+ destinations:</strong> Connect in multiple countries backed by leading networks</li>
-                <li><strong>Convenience at your fingertips:</strong> Ship directly to your home or pick up from your
-                    favorite location</li>
-                <li><strong>More than just WiFi:</strong> All-in-one app for hotel stays, attractions, transport, tours,
-                    travel insurance, accessories, and more</li>
-                <li><strong>Digital Wallet:</strong> Secure payment integration</li>
-            </ul>
-        </div>
-
-        </div>
-
-        <div class="project-section">
-            <h3>Process Followed</h3>
-            <p>
-                The design process included persona development, information architecture, user story mapping, and
-                iterative prototyping from low to high fidelity wireframes.
-            </p>
-
-            <h4 class="mt-xl">User Story Mapping</h4>
-            <img src="./assets/images/jane_travel/user_story.avif" alt="User Story Mapping" class="project-image">
-
-            <h4 class="mt-xl">User Persona</h4>
-            <img src="./assets/images/jane_travel/persona.avif" alt="User Persona" class="project-image">
-
-            <h4 class="mt-xl">Information Architecture</h4>
-            <img src="./assets/images/jane_travel/information_architecture.avif" alt="Information Architecture"
-                class="project-image">
-
-            <h4 class="mt-xl">Pocket MiFi Rental Flow</h4>
-            <img src="./assets/images/jane_travel/pocket_mifi_rental​  .avif" alt="Pocket MiFi Rental Flow"
-                class="project-image">
-        </div>
-
-        <div class="project-section">
-            <h3>Wireframes</h3>
-
-            <div class="mt-lg">
-                <h5 class="mb-sm">Low Fidelity</h5>
-
-                <!-- Desktop Low Fidelity Carousel -->
-                <div class="wireframe-carousel" id="lfDesktopCarousel">
-                    <!-- Frameless Desktop Container -->
-                    <div class="frameless-container desktop">
-                        <div class="carousel-track" id="lfDesktopTrack">
-                            <img src="./assets/images/jane_travel/lf_wireframe_desktop1.avif"
-                                alt="Low Fidelity Desktop Wireframe 1" class="carousel-image">
-                        </div>
-                    </div>
-                    <!-- Single image, no nav needed but keeping structure for consistency -->
-                    <div class="carousel-dots" id="lfDesktopDots"></div>
+    <article class="project-content !max-w-none !p-0">
+        <!-- Problem Statement -->
+        <section id="problem" class="py-20 md:py-32 bg-background">
+            <div class="container px-6 mx-auto">
+                <div class="mb-12 md:mb-16">
+                    <span class="mb-3 inline-block text-sm font-medium uppercase tracking-widest text-secondary">The
+                        Challenge</span>
+                    <h2 class="font-display text-3xl font-bold md:text-4xl lg:text-5xl text-foreground">Problem
+                        Statement</h2>
+                    <p class="mt-4 max-w-2xl text-lg text-muted-foreground">Understanding the core challenges we needed
+                        to address to create a successful travel super app experience.</p>
                 </div>
 
-                <!-- Mobile Low Fidelity Carousel -->
-                <div class="mobile-wireframe-carousel" id="lfMobileCarousel">
-                    <!-- Frameless Mobile Container -->
-                    <div class="frameless-container mobile">
-                        <div class="carousel-track" id="lfMobileTrack">
-                            <img src="./assets/images/jane_travel/lf_wireframe_mobile1.avif"
-                                alt="Low Fidelity Mobile Wireframe 1" class="carousel-image">
-                            <img src="./assets/images/jane_travel/lf_wireframe_mobile2.avif"
-                                alt="Low Fidelity Mobile Wireframe 2" class="carousel-image">
-                            <img src="./assets/images/jane_travel/lf_wireframe_mobile3.avif"
-                                alt="Low Fidelity Mobile Wireframe 3" class="carousel-image">
-                            <img src="./assets/images/jane_travel/lf_wireframe_mobile4.avif"
-                                alt="Low Fidelity Mobile Wireframe 4" class="carousel-image">
-                            <img src="./assets/images/jane_travel/lf_wireframe_mobile5.avif"
-                                alt="Low Fidelity Mobile Wireframe 5" class="carousel-image">
-                            <img src="./assets/images/jane_travel/lf_wireframe_mobile6.avif"
-                                alt="Low Fidelity Mobile Wireframe 6" class="carousel-image">
+                <div class="grid gap-8 md:grid-cols-3">
+                    <div
+                        class="group relative overflow-hidden rounded-2xl bg-card p-8 shadow-card transition-all duration-300 hover:shadow-elevated">
+                        <div
+                            class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground">
+                            <i data-lucide="alert-circle" class="h-7 w-7"></i>
+                        </div>
+                        <h3 class="mb-3 text-xl font-semibold text-foreground">Market Saturation</h3>
+                        <p class="text-muted-foreground">How to provide a unique experience when there are so many
+                            travel-based applications available in the market.</p>
+                        <div
+                            class="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-gradient-primary opacity-5 transition-all duration-500 group-hover:scale-150 group-hover:opacity-10">
                         </div>
                     </div>
-                    <button class="carousel-btn carousel-btn-prev" data-carousel="lfMobileCarousel">‹</button>
-                    <button class="carousel-btn carousel-btn-next" data-carousel="lfMobileCarousel">›</button>
-                    <div class="carousel-dots" id="lfMobileDots"></div>
+                    <div
+                        class="group relative overflow-hidden rounded-2xl bg-card p-8 shadow-card transition-all duration-300 hover:shadow-elevated">
+                        <div
+                            class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground">
+                            <i data-lucide="target" class="h-7 w-7"></i>
+                        </div>
+                        <h3 class="mb-3 text-xl font-semibold text-foreground">Service Integration</h3>
+                        <p class="text-muted-foreground">Promoting pocket Wi-Fi along with other promising services
+                            without overwhelming the user experience.</p>
+                        <div
+                            class="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-gradient-primary opacity-5 transition-all duration-500 group-hover:scale-150 group-hover:opacity-10">
+                        </div>
+                    </div>
+                    <div
+                        class="group relative overflow-hidden rounded-2xl bg-card p-8 shadow-card transition-all duration-300 hover:shadow-elevated">
+                        <div
+                            class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground">
+                            <i data-lucide="lightbulb" class="h-7 w-7"></i>
+                        </div>
+                        <h3 class="mb-3 text-xl font-semibold text-foreground">Super App Complexity</h3>
+                        <p class="text-muted-foreground">The biggest challenge of super apps is that they don't focus on
+                            one thing but rather many services, which can confuse users.</p>
+                        <div
+                            class="absolute -bottom-20 -right-20 h-40 w-40 rounded-full bg-gradient-primary opacity-5 transition-all duration-500 group-hover:scale-150 group-hover:opacity-10">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-16 rounded-3xl bg-gradient-primary p-8 md:p-12 text-primary-foreground">
+                    <h3 class="mb-6 font-display text-2xl font-bold md:text-3xl">Business Problem</h3>
+                    <div class="grid gap-6 md:grid-cols-2">
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <span class="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-accent"></span>
+                                Provide a super app experience offering various services under one umbrella
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-accent"></span>
+                                Offer the best portable unlimited internet while traveling abroad
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-accent"></span>
+                                Data connection in 130+ countries with leading network providers
+                            </li>
+                        </ul>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3">
+                                <span class="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-accent"></span>
+                                All-in-one experience: hotels, transport, attractions, and more
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-accent"></span>
+                                Amazing deals with authentic user reviews during search
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full bg-accent"></span>
+                                Promote pocket Wi-Fi from various partner companies
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+        </section>
 
-            <div class="mt-xl">
-                <h5 class="mb-sm">High Fidelity</h5>
+        <!-- Process Section -->
+        <section id="process" class="py-20 md:py-32 bg-muted">
+            <div class="container px-6 mx-auto">
+                <div class="mb-12 md:mb-16 text-center">
+                    <span
+                        class="mb-3 inline-block text-sm font-medium uppercase tracking-widest text-secondary">Methodology</span>
+                    <h2 class="font-display text-3xl font-bold md:text-4xl lg:text-5xl text-foreground">Our Process</h2>
+                    <p class="mt-4 max-w-2xl text-lg text-muted-foreground mx-auto">A structured design thinking
+                        approach to deliver a seamless travel experience.</p>
+                </div>
 
-                <!-- Desktop High Fidelity Carousel -->
-                <div class="wireframe-carousel" id="hfDesktopCarousel">
-                    <div class="mac-container">
-                        <img src="./assets/images/mac.png" alt="Mac Frame" class="mac-frame">
-                        <div class="mac-screen">
-                            <div class="carousel-track" id="hfDesktopTrack">
-                                <img src="./assets/images/jane_travel/hf_wireframe_desktop1.png"
-                                    alt="High Fidelity Desktop Wireframe 1" class="carousel-image">
-                                <img src="./assets/images/jane_travel/hf_wireframe_desktop2.png"
-                                    alt="High Fidelity Desktop Wireframe 2" class="carousel-image">
-                                <img src="./assets/images/jane_travel/hf_wireframe_desktop3.png"
-                                    alt="High Fidelity Desktop Wireframe 3" class="carousel-image">
-                                <img src="./assets/images/jane_travel/hf_wireframe_desktop4.png"
-                                    alt="High Fidelity Desktop Wireframe 4" class="carousel-image">
-                                <img src="./assets/images/jane_travel/hf_wireframe_desktop5.png"
-                                    alt="High Fidelity Desktop Wireframe 5" class="carousel-image">
-                                <img src="./assets/images/jane_travel/hf_wireframe_desktop6.png"
-                                    alt="High Fidelity Desktop Wireframe 6" class="carousel-image">
+                <div class="relative">
+                    <div class="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-border md:block"></div>
+                    <div class="flex flex-col gap-12 md:gap-0">
+                        <!-- Step 1 -->
+                        <div class="relative flex items-center md:w-1/2 md:mr-auto md:pr-16">
+                            <div
+                                class="absolute top-1/2 right-0 translate-x-1/2 hidden h-4 w-4 -translate-y-1/2 rounded-full bg-gradient-primary md:block">
+                            </div>
+                            <div class="flex w-full items-start gap-6 rounded-2xl bg-card p-6 shadow-card">
+                                <div
+                                    class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground">
+                                    <i data-lucide="search" class="h-6 w-6"></i>
+                                </div>
+                                <div>
+                                    <span class="text-sm font-medium text-secondary">Phase 01</span>
+                                    <h3 class="mb-2 text-xl font-semibold text-foreground">Research</h3>
+                                    <p class="text-muted-foreground">Quantitative research, competitor analysis, and
+                                        market exploration</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="relative flex items-center md:w-1/2 md:ml-auto md:pl-16 md:mt-12">
+                            <div
+                                class="absolute top-1/2 left-0 -translate-x-1/2 hidden h-4 w-4 -translate-y-1/2 rounded-full bg-gradient-primary md:block">
+                            </div>
+                            <div class="flex w-full items-start gap-6 rounded-2xl bg-card p-6 shadow-card">
+                                <div
+                                    class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground">
+                                    <i data-lucide="users" class="h-6 w-6"></i>
+                                </div>
+                                <div>
+                                    <span class="text-sm font-medium text-secondary">Phase 02</span>
+                                    <h3 class="mb-2 text-xl font-semibold text-foreground">Define</h3>
+                                    <p class="text-muted-foreground">User personas, needs analysis, and problem framing
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="relative flex items-center md:w-1/2 md:mr-auto md:pr-16 md:mt-12">
+                            <div
+                                class="absolute top-1/2 right-0 translate-x-1/2 hidden h-4 w-4 -translate-y-1/2 rounded-full bg-gradient-primary md:block">
+                            </div>
+                            <div class="flex w-full items-start gap-6 rounded-2xl bg-card p-6 shadow-card">
+                                <div
+                                    class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground">
+                                    <i data-lucide="pen-tool" class="h-6 w-6"></i>
+                                </div>
+                                <div>
+                                    <span class="text-sm font-medium text-secondary">Phase 03</span>
+                                    <h3 class="mb-2 text-xl font-semibold text-foreground">Ideate</h3>
+                                    <p class="text-muted-foreground">Task flows, sketches, and conceptual exploration
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Step 4 -->
+                        <div class="relative flex items-center md:w-1/2 md:ml-auto md:pl-16 md:mt-12">
+                            <div
+                                class="absolute top-1/2 left-0 -translate-x-1/2 hidden h-4 w-4 -translate-y-1/2 rounded-full bg-gradient-primary md:block">
+                            </div>
+                            <div class="flex w-full items-start gap-6 rounded-2xl bg-card p-6 shadow-card">
+                                <div
+                                    class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground">
+                                    <i data-lucide="code" class="h-6 w-6"></i>
+                                </div>
+                                <div>
+                                    <span class="text-sm font-medium text-secondary">Phase 04</span>
+                                    <h3 class="mb-2 text-xl font-semibold text-foreground">Design</h3>
+                                    <p class="text-muted-foreground">High-fidelity mockups and interactive prototypes
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Step 5 -->
+                        <div class="relative flex items-center md:w-1/2 md:mr-auto md:pr-16 md:mt-12">
+                            <div
+                                class="absolute top-1/2 right-0 translate-x-1/2 hidden h-4 w-4 -translate-y-1/2 rounded-full bg-gradient-primary md:block">
+                            </div>
+                            <div class="flex w-full items-start gap-6 rounded-2xl bg-card p-6 shadow-card">
+                                <div
+                                    class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground">
+                                    <i data-lucide="test-tube" class="h-6 w-6"></i>
+                                </div>
+                                <div>
+                                    <span class="text-sm font-medium text-secondary">Phase 05</span>
+                                    <h3 class="mb-2 text-xl font-semibold text-foreground">Validate</h3>
+                                    <p class="text-muted-foreground">User testing and iterative improvements</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <button class="carousel-btn carousel-btn-prev" data-carousel="hfDesktopCarousel">‹</button>
-                    <button class="carousel-btn carousel-btn-next" data-carousel="hfDesktopCarousel">›</button>
-                    <div class="carousel-dots" id="hfDesktopDots"></div>
-                </div>
-
-                <!-- Mobile High Fidelity Carousel -->
-                <div class="mobile-wireframe-carousel" id="hfMobileCarousel">
-                    <!-- Frameless Mobile Container -->
-                    <div class="frameless-container mobile">
-                        <div class="carousel-track" id="hfMobileTrack">
-                            <img src="./assets/images/jane_travel/hf_wireframe_mobile1.avif"
-                                alt="High Fidelity Mobile Wireframe 1" class="carousel-image">
-                            <img src="./assets/images/jane_travel/hf_wireframe_mobile2.avif"
-                                alt="High Fidelity Mobile Wireframe 2" class="carousel-image">
-                            <img src="./assets/images/jane_travel/hf_wireframe_mobile3.avif"
-                                alt="High Fidelity Mobile Wireframe 3" class="carousel-image">
-                            <img src="./assets/images/jane_travel/hf_wireframe_mobile4.avif"
-                                alt="High Fidelity Mobile Wireframe 4" class="carousel-image">
-                            <img src="./assets/images/jane_travel/hf_wireframe_mobile5.avif"
-                                alt="High Fidelity Mobile Wireframe 5" class="carousel-image">
-                            <img src="./assets/images/jane_travel/hf_wireframe_mobile6.avif"
-                                alt="High Fidelity Mobile Wireframe 6" class="carousel-image">
-                            <img src="./assets/images/jane_travel/hf_wireframe_mobile7.avif"
-                                alt="High Fidelity Mobile Wireframe 7" class="carousel-image">
-                            <img src="./assets/images/jane_travel/hf_wireframe_mobile8.avif"
-                                alt="High Fidelity Mobile Wireframe 8" class="carousel-image">
-                            <img src="./assets/images/jane_travel/hf_wireframe_mobile9.avif"
-                                alt="High Fidelity Mobile Wireframe 9" class="carousel-image">
-                        </div>
-                    </div>
-                    <button class="carousel-btn carousel-btn-prev" data-carousel="hfMobileCarousel">‹</button>
-                    <button class="carousel-btn carousel-btn-next" data-carousel="hfMobileCarousel">›</button>
-                    <div class="carousel-dots" id="hfMobileDots"></div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <!-- Objectives Section -->
+        <section id="objectives" class="py-20 md:py-32 bg-foreground text-background">
+            <div class="container px-6 mx-auto">
+                <div class="grid gap-16 lg:grid-cols-2">
+                    <div>
+                        <div class="mb-12 md:mb-16">
+                            <span
+                                class="mb-3 inline-block text-sm font-medium uppercase tracking-widest text-secondary">Project
+                                Scope</span>
+                            <h2 class="font-display text-3xl font-bold md:text-4xl lg:text-5xl text-background">
+                                Objectives & Goals</h2>
+                        </div>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-4">
+                                <span
+                                    class="mt-1 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-accent text-accent-foreground">
+                                    <i data-lucide="check" class="h-4 w-4"></i>
+                                </span>
+                                <span class="text-background/90">Design a website showcasing Jane App's features and
+                                    benefits</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span
+                                    class="mt-1 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-accent text-accent-foreground">
+                                    <i data-lucide="check" class="h-4 w-4"></i>
+                                </span>
+                                <span class="text-background/90">Promote pocket Wi-Fi as a core offering alongside other
+                                    travel services</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span
+                                    class="mt-1 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-accent text-accent-foreground">
+                                    <i data-lucide="check" class="h-4 w-4"></i>
+                                </span>
+                                <span class="text-background/90">Create a clickable prototype of the mobile
+                                    application</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span
+                                    class="mt-1 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-accent text-accent-foreground">
+                                    <i data-lucide="check" class="h-4 w-4"></i>
+                                </span>
+                                <span class="text-background/90">Develop a one-page marketing website for launch</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span
+                                    class="mt-1 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-accent text-accent-foreground">
+                                    <i data-lucide="check" class="h-4 w-4"></i>
+                                </span>
+                                <span class="text-background/90">Ensure seamless user experience across all
+                                    touchpoints</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <span
+                                    class="mt-1 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-accent text-accent-foreground">
+                                    <i data-lucide="check" class="h-4 w-4"></i>
+                                </span>
+                                <span class="text-background/90">Establish a clear visual identity and design
+                                    system</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="rounded-2xl bg-background/5 p-6 text-center backdrop-blur-sm">
+                                <div class="mb-2 text-gradient font-display text-4xl font-bold md:text-5xl">130+</div>
+                                <div class="text-sm text-background/70">Countries Covered</div>
+                            </div>
+                            <div class="rounded-2xl bg-background/5 p-6 text-center backdrop-blur-sm">
+                                <div class="mb-2 text-gradient font-display text-4xl font-bold md:text-5xl">10M+</div>
+                                <div class="text-sm text-background/70">Target Users</div>
+                            </div>
+                            <div class="rounded-2xl bg-background/5 p-6 text-center backdrop-blur-sm">
+                                <div class="mb-2 text-gradient font-display text-4xl font-bold md:text-5xl">4.5+</div>
+                                <div class="text-sm text-background/70">App Store Rating Goal</div>
+                            </div>
+                            <div class="rounded-2xl bg-background/5 p-6 text-center backdrop-blur-sm">
+                                <div class="mb-2 text-gradient font-display text-4xl font-bold md:text-5xl">60%</div>
+                                <div class="text-sm text-background/70">User Retention Target</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Research Section -->
+        <section id="research" class="py-20 md:py-32 bg-background">
+            <div class="container px-6 mx-auto">
+                <div class="mb-12 md:mb-16">
+                    <span
+                        class="mb-3 inline-block text-sm font-medium uppercase tracking-widest text-secondary">Discovery
+                        Phase</span>
+                    <h2 class="font-display text-3xl font-bold md:text-4xl lg:text-5xl text-foreground">Quantitative
+                        Research</h2>
+                    <p class="mt-4 max-w-2xl text-lg text-muted-foreground">Data-driven insights that shaped our design
+                        decisions and product strategy.</p>
+                </div>
+
+                <div class="mb-20 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                    <div class="relative overflow-hidden rounded-2xl border border-border bg-card p-6 text-center">
+                        <div class="text-gradient mb-2 font-display text-5xl font-bold">78%</div>
+                        <p class="text-sm text-muted-foreground">of travelers use multiple apps during a single trip</p>
+                    </div>
+                    <div class="relative overflow-hidden rounded-2xl border border-border bg-card p-6 text-center">
+                        <div class="text-gradient mb-2 font-display text-5xl font-bold">65%</div>
+                        <p class="text-sm text-muted-foreground">struggle with internet connectivity abroad</p>
+                    </div>
+                    <div class="relative overflow-hidden rounded-2xl border border-border bg-card p-6 text-center">
+                        <div class="text-gradient mb-2 font-display text-5xl font-bold">52%</div>
+                        <p class="text-sm text-muted-foreground">prefer all-in-one travel solutions</p>
+                    </div>
+                    <div class="relative overflow-hidden rounded-2xl border border-border bg-card p-6 text-center">
+                        <div class="text-gradient mb-2 font-display text-5xl font-bold">89%</div>
+                        <p class="text-sm text-muted-foreground">read reviews before booking services</p>
+                    </div>
+                </div>
+
+                <div class="mt-16">
+                    <h3 class="mb-8 font-display text-2xl font-bold text-foreground md:text-3xl">User Needs Identified
+                    </h3>
+                    <div class="grid gap-6 md:grid-cols-2">
+                        <div class="flex items-start gap-4 rounded-xl bg-muted p-6">
+                            <div class="flex-1">
+                                <div class="mb-2 flex items-center justify-between">
+                                    <h4 class="text-lg font-semibold text-foreground">Connectivity</h4>
+                                    <span
+                                        class="rounded-full bg-primary px-3 py-1 text-xs font-medium text-primary-foreground">High</span>
+                                </div>
+                                <p class="text-muted-foreground">Reliable internet access in any country without roaming
+                                    charges</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 rounded-xl bg-muted p-6">
+                            <div class="flex-1">
+                                <div class="mb-2 flex items-center justify-between">
+                                    <h4 class="text-lg font-semibold text-foreground">Convenience</h4>
+                                    <span
+                                        class="rounded-full bg-primary px-3 py-1 text-xs font-medium text-primary-foreground">High</span>
+                                </div>
+                                <p class="text-muted-foreground">One app for all travel needs: booking, transport,
+                                    activities</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 rounded-xl bg-muted p-6">
+                            <div class="flex-1">
+                                <div class="mb-2 flex items-center justify-between">
+                                    <h4 class="text-lg font-semibold text-foreground">Trust</h4>
+                                    <span
+                                        class="rounded-full bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground">Medium</span>
+                                </div>
+                                <p class="text-muted-foreground">Verified reviews and transparent pricing for all
+                                    services</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 rounded-xl bg-muted p-6">
+                            <div class="flex-1">
+                                <div class="mb-2 flex items-center justify-between">
+                                    <h4 class="text-lg font-semibold text-foreground">Savings</h4>
+                                    <span
+                                        class="rounded-full bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground">Medium</span>
+                                </div>
+                                <p class="text-muted-foreground">Competitive deals and bundle discounts for frequent
+                                    travelers</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-20 md:py-32 bg-muted">
+            <div class="container px-6 mx-auto">
+                <div class="mb-12 md:mb-16 text-center">
+                    <span class="mb-3 inline-block text-sm font-medium uppercase tracking-widest text-secondary">Product
+                        Features</span>
+                    <h2 class="font-display text-3xl font-bold md:text-4xl lg:text-5xl text-foreground">Features &
+                        Functionalities</h2>
+                    <p class="mt-4 max-w-2xl text-lg text-muted-foreground mx-auto">A comprehensive suite of travel
+                        services designed to enhance every journey.</p>
+                </div>
+
+                <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                    <div
+                        class="group rounded-2xl bg-card p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-elevated">
+                        <div
+                            class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground transition-transform duration-300 group-hover:scale-110">
+                            <i data-lucide="wifi" class="h-6 w-6"></i>
+                        </div>
+                        <h3 class="mb-2 text-lg font-semibold text-foreground">Pocket Wi-Fi</h3>
+                        <p class="text-sm text-muted-foreground">Portable unlimited internet in 130+ countries with
+                            leading network providers</p>
+                    </div>
+                    <div
+                        class="group rounded-2xl bg-card p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-elevated">
+                        <div
+                            class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground transition-transform duration-300 group-hover:scale-110">
+                            <i data-lucide="hotel" class="h-6 w-6"></i>
+                        </div>
+                        <h3 class="mb-2 text-lg font-semibold text-foreground">Hotel Booking</h3>
+                        <p class="text-sm text-muted-foreground">Find and book accommodations with verified reviews and
+                            best price guarantee</p>
+                    </div>
+                    <div
+                        class="group rounded-2xl bg-card p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-elevated">
+                        <div
+                            class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground transition-transform duration-300 group-hover:scale-110">
+                            <i data-lucide="car" class="h-6 w-6"></i>
+                        </div>
+                        <h3 class="mb-2 text-lg font-semibold text-foreground">Transport</h3>
+                        <p class="text-sm text-muted-foreground">On-demand transport services from airports, stations,
+                            and anywhere you need</p>
+                    </div>
+                    <div
+                        class="group rounded-2xl bg-card p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-elevated">
+                        <div
+                            class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground transition-transform duration-300 group-hover:scale-110">
+                            <i data-lucide="map" class="h-6 w-6"></i>
+                        </div>
+                        <h3 class="mb-2 text-lg font-semibold text-foreground">Attractions</h3>
+                        <p class="text-sm text-muted-foreground">Discover and book local attractions, tours, and
+                            experiences</p>
+                    </div>
+                    <div
+                        class="group rounded-2xl bg-card p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-elevated">
+                        <div
+                            class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground transition-transform duration-300 group-hover:scale-110">
+                            <i data-lucide="wallet" class="h-6 w-6"></i>
+                        </div>
+                        <h3 class="mb-2 text-lg font-semibold text-foreground">Digital Wallet</h3>
+                        <p class="text-sm text-muted-foreground">Secure payments with multi-currency support and travel
+                            cashback</p>
+                    </div>
+                    <div
+                        class="group rounded-2xl bg-card p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-elevated">
+                        <div
+                            class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground transition-transform duration-300 group-hover:scale-110">
+                            <i data-lucide="star" class="h-6 w-6"></i>
+                        </div>
+                        <h3 class="mb-2 text-lg font-semibold text-foreground">User Reviews</h3>
+                        <p class="text-sm text-muted-foreground">Authentic reviews from real travelers to help you make
+                            decisions</p>
+                    </div>
+                    <div
+                        class="group rounded-2xl bg-card p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-elevated">
+                        <div
+                            class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground transition-transform duration-300 group-hover:scale-110">
+                            <i data-lucide="globe" class="h-6 w-6"></i>
+                        </div>
+                        <h3 class="mb-2 text-lg font-semibold text-foreground">Global Coverage</h3>
+                        <p class="text-sm text-muted-foreground">Services available across continents with localized
+                            recommendations</p>
+                    </div>
+                    <div
+                        class="group rounded-2xl bg-card p-6 shadow-card transition-all duration-300 hover:-translate-y-1 hover:shadow-elevated">
+                        <div
+                            class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-primary text-primary-foreground transition-transform duration-300 group-hover:scale-110">
+                            <i data-lucide="headphones" class="h-6 w-6"></i>
+                        </div>
+                        <h3 class="mb-2 text-lg font-semibold text-foreground">24/7 Support</h3>
+                        <p class="text-sm text-muted-foreground">Round-the-clock customer support in multiple languages
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Competitor Section -->
+        <section id="competitors" class="py-20 md:py-32 bg-background">
+            <div class="container px-6 mx-auto">
+                <div class="mb-12 md:mb-16">
+                    <span class="mb-3 inline-block text-sm font-medium uppercase tracking-widest text-secondary">Market
+                        Analysis</span>
+                    <h2 class="font-display text-3xl font-bold md:text-4xl lg:text-5xl text-foreground">Competitor
+                        Analysis</h2>
+                    <p class="mt-4 max-w-2xl text-lg text-muted-foreground">Understanding the competitive landscape to
+                        identify opportunities for differentiation.</p>
+                </div>
+
+                <div class="mb-16 overflow-hidden rounded-2xl border border-border bg-card shadow-card">
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="border-b border-border bg-muted">
+                                    <th class="p-4 text-left font-semibold text-foreground">Feature</th>
+                                    <th
+                                        class="p-4 text-center font-semibold bg-gradient-primary text-primary-foreground">
+                                        Jane App</th>
+                                    <th class="p-4 text-center font-semibold text-foreground">Booking.com</th>
+                                    <th class="p-4 text-center font-semibold text-foreground">Airalo</th>
+                                    <th class="p-4 text-center font-semibold text-foreground">TripAdvisor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="bg-background">
+                                    <td class="p-4 font-medium text-foreground">Pocket Wi-Fi Rental</td>
+                                    <td class="p-4 text-center"><i data-lucide="check"
+                                            class="mx-auto h-5 w-5 text-accent"></i></td>
+                                    <td class="p-4 text-center"><i data-lucide="x"
+                                            class="mx-auto h-5 w-5 text-destructive/50"></i></td>
+                                    <td class="p-4 text-center"><i data-lucide="check"
+                                            class="mx-auto h-5 w-5 text-accent"></i></td>
+                                    <td class="p-4 text-center"><i data-lucide="x"
+                                            class="mx-auto h-5 w-5 text-destructive/50"></i></td>
+                                </tr>
+                                <tr class="bg-muted/30">
+                                    <td class="p-4 font-medium text-foreground">Hotel Booking</td>
+                                    <td class="p-4 text-center"><i data-lucide="check"
+                                            class="mx-auto h-5 w-5 text-accent"></i></td>
+                                    <td class="p-4 text-center"><i data-lucide="check"
+                                            class="mx-auto h-5 w-5 text-accent"></i></td>
+                                    <td class="p-4 text-center"><i data-lucide="x"
+                                            class="mx-auto h-5 w-5 text-destructive/50"></i></td>
+                                    <td class="p-4 text-center"><i data-lucide="check"
+                                            class="mx-auto h-5 w-5 text-accent"></i></td>
+                                </tr>
+                                <tr class="bg-background">
+                                    <td class="p-4 font-medium text-foreground">Transport Services</td>
+                                    <td class="p-4 text-center"><i data-lucide="check"
+                                            class="mx-auto h-5 w-5 text-accent"></i></td>
+                                    <td class="p-4 text-center"><i data-lucide="check"
+                                            class="mx-auto h-5 w-5 text-accent"></i></td>
+                                    <td class="p-4 text-center"><i data-lucide="x"
+                                            class="mx-auto h-5 w-5 text-destructive/50"></i></td>
+                                    <td class="p-4 text-center"><i data-lucide="x"
+                                            class="mx-auto h-5 w-5 text-destructive/50"></i></td>
+                                </tr>
+                                <tr class="bg-muted/30">
+                                    <td class="p-4 font-medium text-foreground">Attraction Booking</td>
+                                    <td class="p-4 text-center"><i data-lucide="check"
+                                            class="mx-auto h-5 w-5 text-accent"></i></td>
+                                    <td class="p-4 text-center"><i data-lucide="check"
+                                            class="mx-auto h-5 w-5 text-accent"></i></td>
+                                    <td class="p-4 text-center"><i data-lucide="x"
+                                            class="mx-auto h-5 w-5 text-destructive/50"></i></td>
+                                    <td class="p-4 text-center"><i data-lucide="check"
+                                            class="mx-auto h-5 w-5 text-accent"></i></td>
+                                </tr>
+                                <tr class="bg-background">
+                                    <td class="p-4 font-medium text-foreground">Digital Wallet</td>
+                                    <td class="p-4 text-center"><i data-lucide="check"
+                                            class="mx-auto h-5 w-5 text-accent"></i></td>
+                                    <td class="p-4 text-center"><i data-lucide="x"
+                                            class="mx-auto h-5 w-5 text-destructive/50"></i></td>
+                                    <td class="p-4 text-center"><i data-lucide="x"
+                                            class="mx-auto h-5 w-5 text-destructive/50"></i></td>
+                                    <td class="p-4 text-center"><i data-lucide="x"
+                                            class="mx-auto h-5 w-5 text-destructive/50"></i></td>
+                                </tr>
+                                <tr class="bg-muted/30">
+                                    <td class="p-4 font-medium text-foreground">Global Coverage 130+</td>
+                                    <td class="p-4 text-center"><i data-lucide="check"
+                                            class="mx-auto h-5 w-5 text-accent"></i></td>
+                                    <td class="p-4 text-center"><i data-lucide="check"
+                                            class="mx-auto h-5 w-5 text-accent"></i></td>
+                                    <td class="p-4 text-center"><i data-lucide="check"
+                                            class="mx-auto h-5 w-5 text-accent"></i></td>
+                                    <td class="p-4 text-center"><i data-lucide="check"
+                                            class="mx-auto h-5 w-5 text-accent"></i></td>
+                                </tr>
+                                <tr class="bg-background">
+                                    <td class="p-4 font-medium text-foreground">All-in-One App</td>
+                                    <td class="p-4 text-center"><i data-lucide="check"
+                                            class="mx-auto h-5 w-5 text-accent"></i></td>
+                                    <td class="p-4 text-center"><i data-lucide="minus"
+                                            class="mx-auto h-5 w-5 text-muted-foreground"></i></td>
+                                    <td class="p-4 text-center"><i data-lucide="x"
+                                            class="mx-auto h-5 w-5 text-destructive/50"></i></td>
+                                    <td class="p-4 text-center"><i data-lucide="minus"
+                                            class="mx-auto h-5 w-5 text-muted-foreground"></i></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="mb-8 font-display text-2xl font-bold text-foreground md:text-3xl">Unique Features</h3>
+                    <div class="grid gap-6 md:grid-cols-3">
+                        <div class="rounded-2xl border-2 border-primary/20 bg-primary/5 p-6">
+                            <h4 class="mb-3 text-lg font-semibold text-foreground">Unified Super App Experience</h4>
+                            <p class="text-muted-foreground">Unlike competitors that focus on single services, Jane App
+                                integrates Wi-Fi, hotels, transport, and attractions into one seamless experience.</p>
+                        </div>
+                        <div class="rounded-2xl border-2 border-primary/20 bg-primary/5 p-6">
+                            <h4 class="mb-3 text-lg font-semibold text-foreground">Pocket Wi-Fi Integration</h4>
+                            <p class="text-muted-foreground">First travel app to deeply integrate portable Wi-Fi rental
+                                with booking services, solving connectivity issues for international travelers.</p>
+                        </div>
+                        <div class="rounded-2xl border-2 border-primary/20 bg-primary/5 p-6">
+                            <h4 class="mb-3 text-lg font-semibold text-foreground">Smart Trip Planning</h4>
+                            <p class="text-muted-foreground">AI-powered recommendations that suggest the best Wi-Fi
+                                plans based on your trip duration, destinations, and usage patterns.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Persona Section -->
+        <section id="personas" class="py-20 md:py-32 bg-muted">
+            <div class="container px-6 mx-auto">
+                <div class="mb-12 md:mb-16 text-center">
+                    <span class="mb-3 inline-block text-sm font-medium uppercase tracking-widest text-secondary">User
+                        Research</span>
+                    <h2 class="font-display text-3xl font-bold md:text-4xl lg:text-5xl text-foreground">User Personas
+                    </h2>
+                    <p class="mt-4 max-w-2xl text-lg text-muted-foreground mx-auto">Representative user profiles based
+                        on our research findings.</p>
+                </div>
+
+                <div class="grid gap-8 lg:grid-cols-2">
+                    <!-- Persona 1 -->
+                    <div class="overflow-hidden rounded-3xl bg-card shadow-card">
+                        <div class="flex items-center gap-6 bg-gradient-primary p-6">
+                            <img src="./assets/images/jane_travel/persona-1.jpg" alt="Sarah Chen"
+                                class="h-24 w-24 rounded-2xl object-cover ring-4 ring-primary-foreground/20">
+                            <div class="text-primary-foreground">
+                                <h3 class="text-2xl font-bold">Sarah Chen</h3>
+                                <p class="text-primary-foreground/80">Digital Nomad</p>
+                                <p class="mt-1 text-sm text-primary-foreground/60">28 years old • Singapore</p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <p class="mb-6 text-muted-foreground">Sarah works remotely as a UX designer and travels to a
+                                new country every 2-3 months. She needs reliable internet connectivity everywhere she
+                                goes.</p>
+                            <div class="mb-6 grid gap-6 sm:grid-cols-2">
+                                <div>
+                                    <h4 class="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">Goals
+                                    </h4>
+                                    <ul class="space-y-2">
+                                        <li class="flex items-start gap-2 text-sm text-foreground"><span
+                                                class="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent"></span>Stay
+                                            connected for work in any country</li>
+                                        <li class="flex items-start gap-2 text-sm text-foreground"><span
+                                                class="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent"></span>Minimize
+                                            time spent planning logistics</li>
+                                        <li class="flex items-start gap-2 text-sm text-foreground"><span
+                                                class="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent"></span>Find
+                                            authentic local experiences</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="mb-3 text-sm font-semibold uppercase tracking-wider text-destructive">
+                                        Pain Points</h4>
+                                    <ul class="space-y-2">
+                                        <li class="flex items-start gap-2 text-sm text-foreground"><span
+                                                class="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-destructive/50"></span>Managing
+                                            multiple apps for different needs</li>
+                                        <li class="flex items-start gap-2 text-sm text-foreground"><span
+                                                class="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-destructive/50"></span>Expensive
+                                            roaming charges</li>
+                                        <li class="flex items-start gap-2 text-sm text-foreground"><span
+                                                class="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-destructive/50"></span>Inconsistent
+                                            internet quality abroad</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <blockquote class="rounded-xl bg-muted p-4 italic text-muted-foreground">"I just want one
+                                app that handles everything so I can focus on my work and experiences."</blockquote>
+                        </div>
+                    </div>
+                    <!-- Persona 2 -->
+                    <div class="overflow-hidden rounded-3xl bg-card shadow-card">
+                        <div class="flex items-center gap-6 bg-gradient-primary p-6">
+                            <img src="./assets/images/jane_travel/persona-2.jpg" alt="Marcus Johnson"
+                                class="h-24 w-24 rounded-2xl object-cover ring-4 ring-primary-foreground/20">
+                            <div class="text-primary-foreground">
+                                <h3 class="text-2xl font-bold">Marcus Johnson</h3>
+                                <p class="text-primary-foreground/80">Business Traveler</p>
+                                <p class="mt-1 text-sm text-primary-foreground/60">35 years old • New York</p>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <p class="mb-6 text-muted-foreground">Marcus is a sales director who travels internationally
+                                2-3 times per month. Efficiency and reliability are his top priorities.</p>
+                            <div class="mb-6 grid gap-6 sm:grid-cols-2">
+                                <div>
+                                    <h4 class="mb-3 text-sm font-semibold uppercase tracking-wider text-primary">Goals
+                                    </h4>
+                                    <ul class="space-y-2">
+                                        <li class="flex items-start gap-2 text-sm text-foreground"><span
+                                                class="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent"></span>Quick
+                                            and reliable bookings</li>
+                                        <li class="flex items-start gap-2 text-sm text-foreground"><span
+                                                class="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent"></span>Seamless
+                                            expense tracking</li>
+                                        <li class="flex items-start gap-2 text-sm text-foreground"><span
+                                                class="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent"></span>Consistent
+                                            service quality globally</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="mb-3 text-sm font-semibold uppercase tracking-wider text-destructive">
+                                        Pain Points</h4>
+                                    <ul class="space-y-2">
+                                        <li class="flex items-start gap-2 text-sm text-foreground"><span
+                                                class="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-destructive/50"></span>Time
+                                            wasted comparing prices</li>
+                                        <li class="flex items-start gap-2 text-sm text-foreground"><span
+                                                class="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-destructive/50"></span>Connectivity
+                                            issues during meetings</li>
+                                        <li class="flex items-start gap-2 text-sm text-foreground"><span
+                                                class="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-destructive/50"></span>Complex
+                                            expense reporting</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <blockquote class="rounded-xl bg-muted p-4 italic text-muted-foreground">"My time is
+                                valuable. I need a service that just works without any surprises."</blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Analysis Section -->
+        <section id="analysis" class="py-20 md:py-32 bg-background">
+            <div class="container px-6 mx-auto">
+                <div class="mb-12 md:mb-16">
+                    <span
+                        class="mb-3 inline-block text-sm font-medium uppercase tracking-widest text-secondary">Strategic
+                        Analysis</span>
+                    <h2 class="font-display text-3xl font-bold md:text-4xl lg:text-5xl text-foreground">Framework
+                        Analysis</h2>
+                    <p class="mt-4 max-w-2xl text-lg text-muted-foreground">Using proven UX frameworks to prioritize
+                        features and understand user behavior.</p>
+                </div>
+
+                <!-- Task Mapping -->
+                <div class="mb-20">
+                    <h3 class="mb-8 font-display text-2xl font-bold text-foreground">Task Mapping</h3>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <div class="relative flex flex-col items-center">
+                            <div
+                                class="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-primary text-xl font-bold text-primary-foreground">
+                                1</div>
+                            <div class="mt-3 w-32 text-center">
+                                <p class="font-semibold text-foreground">Open Jane App</p>
+                                <p class="mt-1 text-xs text-muted-foreground">User launches the application</p>
+                            </div>
+                            <div class="absolute left-full top-7 hidden h-0.5 w-8 bg-border lg:block"></div>
+                        </div>
+                        <div class="relative flex flex-col items-center">
+                            <div
+                                class="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-primary text-xl font-bold text-primary-foreground">
+                                2</div>
+                            <div class="mt-3 w-32 text-center">
+                                <p class="font-semibold text-foreground">Browse Services</p>
+                                <p class="mt-1 text-xs text-muted-foreground">Explore available travel services</p>
+                            </div>
+                            <div class="absolute left-full top-7 hidden h-0.5 w-8 bg-border lg:block"></div>
+                        </div>
+                        <div class="relative flex flex-col items-center">
+                            <div
+                                class="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-primary text-xl font-bold text-primary-foreground">
+                                3</div>
+                            <div class="mt-3 w-32 text-center">
+                                <p class="font-semibold text-foreground">Select Pocket Wi-Fi</p>
+                                <p class="mt-1 text-xs text-muted-foreground">Choose Wi-Fi rental for destination</p>
+                            </div>
+                            <div class="absolute left-full top-7 hidden h-0.5 w-8 bg-border lg:block"></div>
+                        </div>
+                        <div class="relative flex flex-col items-center">
+                            <div
+                                class="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-primary text-xl font-bold text-primary-foreground">
+                                4</div>
+                            <div class="mt-3 w-32 text-center">
+                                <p class="font-semibold text-foreground">Configure Options</p>
+                                <p class="mt-1 text-xs text-muted-foreground">Set rental period and data plan</p>
+                            </div>
+                            <div class="absolute left-full top-7 hidden h-0.5 w-8 bg-border lg:block"></div>
+                        </div>
+                        <div class="relative flex flex-col items-center">
+                            <div
+                                class="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-primary text-xl font-bold text-primary-foreground">
+                                5</div>
+                            <div class="mt-3 w-32 text-center">
+                                <p class="font-semibold text-foreground">Add Booking</p>
+                                <p class="mt-1 text-xs text-muted-foreground">Optionally add hotel or transport</p>
+                            </div>
+                            <div class="absolute left-full top-7 hidden h-0.5 w-8 bg-border lg:block"></div>
+                        </div>
+                        <div class="relative flex flex-col items-center">
+                            <div
+                                class="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-primary text-xl font-bold text-primary-foreground">
+                                6</div>
+                            <div class="mt-3 w-32 text-center">
+                                <p class="font-semibold text-foreground">Checkout</p>
+                                <p class="mt-1 text-xs text-muted-foreground">Complete payment securely</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Eisenhower Matrix -->
+                <div class="mb-20">
+                    <h3 class="mb-8 font-display text-2xl font-bold text-foreground">Eisenhower Matrix</h3>
+                    <div class="grid gap-4 md:grid-cols-2">
+                        <div class="rounded-2xl border-2 border-primary bg-primary/5 p-6">
+                            <h4 class="mb-4 flex items-center gap-2 font-semibold text-primary">
+                                <span class="h-3 w-3 rounded-full bg-primary"></span>
+                                Urgent & Important (Do First)
+                            </h4>
+                            <ul class="space-y-2 text-foreground">
+                                <li>• Reliable Wi-Fi connectivity</li>
+                                <li>• Secure payment processing</li>
+                                <li>• Real-time booking confirmation</li>
+                            </ul>
+                        </div>
+                        <div class="rounded-2xl border-2 border-secondary bg-secondary/5 p-6">
+                            <h4 class="mb-4 flex items-center gap-2 font-semibold text-secondary">
+                                <span class="h-3 w-3 rounded-full bg-secondary"></span>
+                                Not Urgent & Important (Schedule)
+                            </h4>
+                            <ul class="space-y-2 text-foreground">
+                                <li>• User profile personalization</li>
+                                <li>• Trip history & analytics</li>
+                                <li>• Loyalty rewards program</li>
+                            </ul>
+                        </div>
+                        <div class="rounded-2xl border-2 border-accent bg-accent/5 p-6">
+                            <h4 class="mb-4 flex items-center gap-2 font-semibold text-accent-foreground">
+                                <span class="h-3 w-3 rounded-full bg-accent"></span>
+                                Urgent & Not Important (Delegate)
+                            </h4>
+                            <ul class="space-y-2 text-foreground">
+                                <li>• Push notification preferences</li>
+                                <li>• Social sharing features</li>
+                                <li>• Currency converter</li>
+                            </ul>
+                        </div>
+                        <div class="rounded-2xl border border-border bg-muted/50 p-6">
+                            <h4 class="mb-4 flex items-center gap-2 font-semibold text-muted-foreground">
+                                <span class="h-3 w-3 rounded-full bg-muted-foreground"></span>
+                                Not Urgent & Not Important (Eliminate)
+                            </h4>
+                            <ul class="space-y-2 text-muted-foreground">
+                                <li>• Dark mode theme</li>
+                                <li>• AR destination preview</li>
+                                <li>• Travel journal feature</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5 Why Analysis & RCA -->
+                <div class="grid gap-12 lg:grid-cols-2">
+                    <div>
+                        <h3 class="mb-6 font-display text-2xl font-bold text-foreground">5 Why Analysis</h3>
+                        <div class="space-y-4">
+                            <div class="rounded-xl bg-muted p-4">
+                                <p class="text-sm font-medium text-muted-foreground">Why do travelers struggle?</p>
+                                <p class="mt-1 font-semibold text-foreground">They use multiple apps for different
+                                    services</p>
+                            </div>
+                            <div class="rounded-xl bg-muted p-4">
+                                <p class="text-sm font-medium text-muted-foreground">Why do they use multiple apps?</p>
+                                <p class="mt-1 font-semibold text-foreground">No single app offers all travel needs</p>
+                            </div>
+                            <div class="rounded-xl bg-muted p-4">
+                                <p class="text-sm font-medium text-muted-foreground">Why doesn't one app exist?</p>
+                                <p class="mt-1 font-semibold text-foreground">Complex to integrate diverse services</p>
+                            </div>
+                            <div class="rounded-xl bg-muted p-4">
+                                <p class="text-sm font-medium text-muted-foreground">Why is integration difficult?</p>
+                                <p class="mt-1 font-semibold text-foreground">Different APIs, partners, and systems</p>
+                            </div>
+                            <div class="rounded-xl bg-gradient-primary p-4 text-primary-foreground">
+                                <p class="text-sm font-medium text-primary-foreground/80">Root Cause</p>
+                                <p class="mt-1 font-semibold">Lack of unified travel super-app architecture</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="mb-6 font-display text-2xl font-bold text-foreground">Root Cause Analysis</h3>
+                        <div class="rounded-2xl border border-border bg-card p-6 shadow-card">
+                            <div class="mb-6">
+                                <h4 class="mb-2 font-semibold text-foreground">Problem</h4>
+                                <p class="text-muted-foreground">Travelers face fragmented experiences using multiple
+                                    apps for connectivity, bookings, and services.</p>
+                            </div>
+                            <div class="mb-6">
+                                <h4 class="mb-2 font-semibold text-foreground">Contributing Factors</h4>
+                                <ul class="space-y-2 text-muted-foreground">
+                                    <li>• No unified platform for all travel services</li>
+                                    <li>• Pocket Wi-Fi solutions not integrated with travel apps</li>
+                                    <li>• Inconsistent user experience across services</li>
+                                </ul>
+                            </div>
+                            <div class="rounded-xl bg-gradient-primary p-4 text-primary-foreground">
+                                <h4 class="mb-2 font-semibold">Solution</h4>
+                                <p class="text-primary-foreground/90">Jane App: A unified super-app that integrates
+                                    pocket Wi-Fi with comprehensive travel services, providing a seamless end-to-end
+                                    experience.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Existing Wireframes Section -->
+        <section id="wireframes" class="py-20 md:py-32 bg-background">
+            <div class="container px-6 mx-auto">
+                <div class="mb-12 md:mb-16">
+                    <span class="mb-3 inline-block text-sm font-medium uppercase tracking-widest text-secondary">Design
+                        Phase</span>
+                    <h2 class="font-display text-3xl font-bold md:text-4xl lg:text-5xl text-foreground">Wireframes</h2>
+                    <p class="mt-4 max-w-2xl text-lg text-muted-foreground">Mapping out the user experience from
+                        low-fidelity sketches to high-fidelity designs.</p>
+                </div>
+
+                <div class="space-y-20">
+                    <div>
+                        <h3 class="mb-8 font-display text-2xl font-bold text-foreground">Low Fidelity Layouts</h3>
+
+                        <div class="grid gap-12 lg:grid-cols-2">
+                            <!-- Desktop LF -->
+                            <div class="space-y-4">
+                                <h4 class="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Desktop
+                                    View</h4>
+                                <div class="wireframe-carousel" id="lfDesktopCarousel">
+                                    <div class="frameless-container desktop">
+                                        <div class="carousel-track" id="lfDesktopTrack">
+                                            <img src="./assets/images/jane_travel/lf_wireframe_desktop1.avif"
+                                                alt="Low Fidelity Desktop Wireframe 1" class="carousel-image">
+                                        </div>
+                                    </div>
+                                    <div class="carousel-dots" id="lfDesktopDots"></div>
+                                </div>
+                            </div>
+
+                            <!-- Mobile LF -->
+                            <div class="space-y-4">
+                                <h4 class="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Mobile
+                                    View</h4>
+                                <div class="mobile-wireframe-carousel" id="lfMobileCarousel">
+                                    <div class="frameless-container mobile">
+                                        <div class="carousel-track" id="lfMobileTrack">
+                                            <img src="./assets/images/jane_travel/lf_wireframe_mobile1.avif"
+                                                alt="Low Fidelity Mobile Wireframe 1" class="carousel-image">
+                                            <img src="./assets/images/jane_travel/lf_wireframe_mobile2.avif"
+                                                alt="Low Fidelity Mobile Wireframe 2" class="carousel-image">
+                                            <img src="./assets/images/jane_travel/lf_wireframe_mobile3.avif"
+                                                alt="Low Fidelity Mobile Wireframe 3" class="carousel-image">
+                                            <img src="./assets/images/jane_travel/lf_wireframe_mobile4.avif"
+                                                alt="Low Fidelity Mobile Wireframe 4" class="carousel-image">
+                                            <img src="./assets/images/jane_travel/lf_wireframe_mobile5.avif"
+                                                alt="Low Fidelity Mobile Wireframe 5" class="carousel-image">
+                                            <img src="./assets/images/jane_travel/lf_wireframe_mobile6.avif"
+                                                alt="Low Fidelity Mobile Wireframe 6" class="carousel-image">
+                                        </div>
+                                    </div>
+                                    <button class="carousel-btn carousel-btn-prev"
+                                        data-carousel="lfMobileCarousel">‹</button>
+                                    <button class="carousel-btn carousel-btn-next"
+                                        data-carousel="lfMobileCarousel">›</button>
+                                    <div class="carousel-dots" id="lfMobileDots"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="mb-8 font-display text-2xl font-bold text-foreground">High Fidelity Designs</h3>
+
+                        <div class="grid gap-12 lg:grid-cols-2">
+                            <!-- Desktop HF -->
+                            <div class="space-y-4">
+                                <h4 class="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Desktop
+                                    View</h4>
+                                <div class="wireframe-carousel" id="hfDesktopCarousel">
+                                    <div class="mac-container">
+                                        <img src="./assets/images/mac.png" alt="Mac Frame" class="mac-frame">
+                                        <div class="mac-screen">
+                                            <div class="carousel-track" id="hfDesktopTrack">
+                                                <img src="./assets/images/jane_travel/hf_wireframe_desktop1.png"
+                                                    alt="High Fidelity Desktop Wireframe 1" class="carousel-image">
+                                                <img src="./assets/images/jane_travel/hf_wireframe_desktop2.png"
+                                                    alt="High Fidelity Desktop Wireframe 2" class="carousel-image">
+                                                <img src="./assets/images/jane_travel/hf_wireframe_desktop3.png"
+                                                    alt="High Fidelity Desktop Wireframe 3" class="carousel-image">
+                                                <img src="./assets/images/jane_travel/hf_wireframe_desktop4.png"
+                                                    alt="High Fidelity Desktop Wireframe 4" class="carousel-image">
+                                                <img src="./assets/images/jane_travel/hf_wireframe_desktop5.png"
+                                                    alt="High Fidelity Desktop Wireframe 5" class="carousel-image">
+                                                <img src="./assets/images/jane_travel/hf_wireframe_desktop6.png"
+                                                    alt="High Fidelity Desktop Wireframe 6" class="carousel-image">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="carousel-btn carousel-btn-prev"
+                                        data-carousel="hfDesktopCarousel">‹</button>
+                                    <button class="carousel-btn carousel-btn-next"
+                                        data-carousel="hfDesktopCarousel">›</button>
+                                    <div class="carousel-dots" id="hfDesktopDots"></div>
+                                </div>
+                            </div>
+
+                            <!-- Mobile HF -->
+                            <div class="space-y-4">
+                                <h4 class="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Mobile
+                                    View</h4>
+                                <div class="mobile-wireframe-carousel" id="hfMobileCarousel">
+                                    <div class="frameless-container mobile">
+                                        <div class="carousel-track" id="hfMobileTrack">
+                                            <img src="./assets/images/jane_travel/hf_wireframe_mobile1.avif"
+                                                alt="High Fidelity Mobile Wireframe 1" class="carousel-image">
+                                            <img src="./assets/images/jane_travel/hf_wireframe_mobile2.avif"
+                                                alt="High Fidelity Mobile Wireframe 2" class="carousel-image">
+                                            <img src="./assets/images/jane_travel/hf_wireframe_mobile3.avif"
+                                                alt="High Fidelity Mobile Wireframe 3" class="carousel-image">
+                                            <img src="./assets/images/jane_travel/hf_wireframe_mobile4.avif"
+                                                alt="High Fidelity Mobile Wireframe 4" class="carousel-image">
+                                            <img src="./assets/images/jane_travel/hf_wireframe_mobile5.avif"
+                                                alt="High Fidelity Mobile Wireframe 5" class="carousel-image">
+                                            <img src="./assets/images/jane_travel/hf_wireframe_mobile6.avif"
+                                                alt="High Fidelity Mobile Wireframe 6" class="carousel-image">
+                                            <img src="./assets/images/jane_travel/hf_wireframe_mobile7.avif"
+                                                alt="High Fidelity Mobile Wireframe 7" class="carousel-image">
+                                            <img src="./assets/images/jane_travel/hf_wireframe_mobile8.avif"
+                                                alt="High Fidelity Mobile Wireframe 8" class="carousel-image">
+                                            <img src="./assets/images/jane_travel/hf_wireframe_mobile9.avif"
+                                                alt="High Fidelity Mobile Wireframe 9" class="carousel-image">
+                                        </div>
+                                    </div>
+                                    <button class="carousel-btn carousel-btn-prev"
+                                        data-carousel="hfMobileCarousel">‹</button>
+                                    <button class="carousel-btn carousel-btn-next"
+                                        data-carousel="hfMobileCarousel">›</button>
+                                    <div class="carousel-dots" id="hfMobileDots"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screens Section -->
+        <section id="screens" class="py-20 md:py-32 bg-muted">
+            <div class="container px-6 mx-auto">
+                <div class="mb-12 md:mb-16 text-center">
+                    <span class="mb-3 inline-block text-sm font-medium uppercase tracking-widest text-secondary">Visual
+                        Design</span>
+                    <h2 class="font-display text-3xl font-bold md:text-4xl lg:text-5xl text-foreground">Major Screens
+                    </h2>
+                    <p class="mt-4 max-w-2xl text-lg text-muted-foreground mx-auto">Key interface designs that bring the
+                        Jane App experience to life.</p>
+                </div>
+
+                <!-- Main Mockup Display -->
+                <div class="relative mb-16 flex justify-center">
+                    <div class="relative">
+                        <!-- Decorative background -->
+                        <div class="absolute -inset-10 rounded-full bg-gradient-primary opacity-10 blur-3xl"></div>
+                        <img src="./assets/images/jane_travel/app-mockup.png" alt="Jane App main interface"
+                            class="relative z-10 h-auto max-h-[600px] w-auto drop-shadow-2xl">
+                    </div>
+                </div>
+
+                <!-- Screen descriptions -->
+                <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                    <div class="rounded-2xl bg-card p-6 shadow-card">
+                        <div
+                            class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-primary text-lg font-bold text-primary-foreground">
+                            1</div>
+                        <h3 class="mb-2 font-semibold text-foreground">Home Dashboard</h3>
+                        <p class="text-sm text-muted-foreground">Quick access to all services with personalized
+                            recommendations</p>
+                    </div>
+                    <div class="rounded-2xl bg-card p-6 shadow-card">
+                        <div
+                            class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-primary text-lg font-bold text-primary-foreground">
+                            2</div>
+                        <h3 class="mb-2 font-semibold text-foreground">Wi-Fi Rental</h3>
+                        <p class="text-sm text-muted-foreground">Browse and rent pocket Wi-Fi devices by destination</p>
+                    </div>
+                    <div class="rounded-2xl bg-card p-6 shadow-card">
+                        <div
+                            class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-primary text-lg font-bold text-primary-foreground">
+                            3</div>
+                        <h3 class="mb-2 font-semibold text-foreground">Hotel Search</h3>
+                        <p class="text-sm text-muted-foreground">Find and filter accommodations with reviews and pricing
+                        </p>
+                    </div>
+                    <div class="rounded-2xl bg-card p-6 shadow-card">
+                        <div
+                            class="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-gradient-primary text-lg font-bold text-primary-foreground">
+                            4</div>
+                        <h3 class="mb-2 font-semibold text-foreground">Booking Flow</h3>
+                        <p class="text-sm text-muted-foreground">Streamlined checkout with multiple payment options</p>
+                    </div>
+                </div>
+
+                <!-- User Task Flow -->
+                <div class="mt-20">
+                    <h3 class="mb-8 text-center font-display text-2xl font-bold text-foreground">User Task Flow</h3>
+                    <div class="mx-auto max-w-4xl overflow-hidden rounded-2xl border border-border bg-card p-8">
+                        <div class="flex flex-wrap items-center justify-center gap-4">
+                            <span
+                                class="rounded-lg bg-gradient-primary px-4 py-2 text-sm font-medium text-primary-foreground">Open
+                                App</span>
+                            <span class="text-primary">→</span>
+                            <span
+                                class="rounded-lg bg-gradient-primary px-4 py-2 text-sm font-medium text-primary-foreground">Select
+                                Service</span>
+                            <span class="text-primary">→</span>
+                            <span
+                                class="rounded-lg bg-gradient-primary px-4 py-2 text-sm font-medium text-primary-foreground">Configure</span>
+                            <span class="text-primary">→</span>
+                            <span
+                                class="rounded-lg bg-gradient-primary px-4 py-2 text-sm font-medium text-primary-foreground">Review</span>
+                            <span class="text-primary">→</span>
+                            <span
+                                class="rounded-lg bg-gradient-primary px-4 py-2 text-sm font-medium text-primary-foreground">Pay</span>
+                            <span class="text-primary">→</span>
+                            <span
+                                class="rounded-lg bg-gradient-primary px-4 py-2 text-sm font-medium text-primary-foreground">Confirm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </article>
 
     <!-- Lightbox Modal -->
@@ -242,10 +1347,16 @@
         <div class="lightbox-counter" id="lightboxCounter">1 / 6</div>
     </div>
 
-    <div class="container mb-3xl project-nav-buttons">
-        <div class="flex justify-between">
-            <a href="index.html#work" class="btn btn-secondary">← Back to Work</a>
-            <a href="pharma-submissions.html" class="btn btn-secondary">Next Project →</a>
+    <div class="container py-12 px-6 mx-auto">
+        <div class="flex flex-col sm:flex-row justify-between gap-4 border-t border-border pt-12">
+            <a href="index.html#work"
+                class="inline-flex items-center justify-center rounded-full bg-muted px-8 py-3 text-sm font-medium text-foreground transition-colors hover:bg-border">
+                ← Back to Work
+            </a>
+            <a href="pharma-submissions.html"
+                class="inline-flex items-center justify-center rounded-full bg-primary px-8 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90">
+                Next Project →
+            </a>
         </div>
     </div>
 
@@ -277,13 +1388,8 @@
     <script>
         // Initialize Jane Travel specific carousels
         document.addEventListener('DOMContentLoaded', () => {
-            // Low Fidelity Desktop - single image, buttons might be hidden by CSS/JS if implemented logic for single slide
-            // But our JS currently expects unique IDs
-
-            // We need to modify carousel.js or simply initialize these new IDs
-            // Re-initializing here won't work perfectly if the ID naming convention in carousel.js is strict 
-            // actually carousel.js initializes specific IDs: lfCarousel, hfCarousel.
-            // We need to update carousel.js to be more generic OR initialize these specific ones.
+            // Initialize Lucide icons
+            lucide.createIcons();
 
             const carousels = [
                 'lfDesktopCarousel',
