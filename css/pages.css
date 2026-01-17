@@ -860,6 +860,23 @@
     }
 }
 
+.feature-item.no-reverse .feature-content {
+    order: 0 !important;
+}
+
+.feature-item.no-reverse .feature-image {
+    order: 1 !important;
+}
+
+.feature-item.full-width {
+    grid-template-columns: 1fr;
+    text-align: center;
+}
+
+.feature-item.full-width .feature-image {
+    width: 100%;
+}
+
 /* Flow Section */
 .flow-container {
     padding: var(--space-2xl) 0;
