@@ -365,7 +365,10 @@
     width: 100%;
     max-width: var(--container-xl);
     margin: 0 auto;
-    padding: var(--space-xl) var(--space-lg) var(--space-4xl);
+    padding: var(--space-5xl) var(--space-lg) var(--space-4xl);
+    position: relative;
+    z-index: 2;
+    background-color: var(--color-bg-primary);
 }
 
 .project-section {
