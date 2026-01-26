@@ -791,20 +791,17 @@
 
 /* Metrics Grid */
 .metrics-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-md);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-xl);
     margin-top: var(--space-2xl);
     width: 100%;
 }
 
-@media (min-width: 1024px) {
-    .metrics-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
 .metric-card {
+    flex: 1 1 280px;
+    max-width: 320px;
     padding: var(--space-lg);
     text-align: center;
     display: flex;
