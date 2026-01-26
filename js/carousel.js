@@ -222,6 +222,16 @@ function setupProjectLightbox() {
 
 // Initialize carousels and lightbox when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize Brainstorming carousel (if exists)
+    if (document.getElementById('brainstormCarousel')) {
+        new WireframeCarousel('brainstormCarousel');
+    }
+
+    // Initialize Mural carousel (if exists)
+    if (document.getElementById('muralCarousel')) {
+        new WireframeCarousel('muralCarousel');
+    }
+
     // Initialize Low Fidelity carousel (if exists)
     if (document.getElementById('lfCarousel')) {
         new WireframeCarousel('lfCarousel');
