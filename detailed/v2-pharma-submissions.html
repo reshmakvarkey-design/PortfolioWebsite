@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6032RLGQ4J"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-6032RLGQ4J');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pharma Submission Drafting Tool - UX Case Study">
+
+    <title>Pharma Submission Drafting Tool - Case Study</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/pages.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+
+    <style>
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: var(--color-bg-tertiary);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--color-primary);
+            border-radius: 4px;
+        }
+
+        .sticky-note {
+            padding: var(--space-md);
+            border-radius: 4px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #333;
+        }
+
+
+
+        .persona-card {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: var(--space-2xl);
+            background: var(--color-bg-secondary);
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+            border: 1px solid var(--border-color-subtle);
+        }
+
+        .persona-header {
+            text-align: center;
+        }
+
+        .persona-image {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: var(--radius-lg);
+            object-fit: cover;
+            margin-bottom: var(--space-md);
+        }
+
+        .persona-quote {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+            border-left: 4px solid var(--color-primary);
+            padding-left: var(--space-md);
+            margin: var(--space-xl) 0;
+        }
+
+        @media (max-width: 768px) {
+            .persona-card {
+                grid-template-columns: 1fr;
+            }
+
+            .journey-flow {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+
+            .journey-arrow {
+                transform: rotate(90deg);
+                margin: var(--space-xs) 0;
+            }
+        }
+    </style>
+</head>
+
+<body class="light-theme">
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo"><img src="../assets/images/reshma_logo.avif" alt="Logo"> Reshma K
+                V</a>
+
+            <div class="nav-toggle" id="navToggle">
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+                <span class="nav-toggle-line"></span>
+            </div>
+
+            <div class="nav-links" id="navLinks">
+                <a href="../index.html#work" class="nav-link">Work</a>
+                <a href="../off-the-grid.html" class="nav-link">Off the Grid</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../index.html#contact" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="project-hero-content">
+            <h1 class="project-hero-title">Revolutionizing Pharma Submissions with AI</h1>
+            <p class="hero-description mt-md">
+                From 25 weeks manual drafting to an 8 week, AI assisted submission draft workflow in a global pharma
+                organization.
+            </p>
+
+            <div class="hero-badge-container mt-lg">
+                <span class="hero-badge hero-badge-role">Product Design</span>
+                <span class="hero-badge hero-badge-role">UX Research</span>
+                <span class="hero-badge hero-badge-role">AI Integration</span>
+                <span class="hero-badge hero-badge-role">Healthcare</span>
+            </div>
+
+            <div class="metrics-grid mt-2xl" style="max-width: 1000px; margin-left: auto; margin-right: auto;">
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <div class="metric-value">60-70%</div>
+                    <div class="metric-label">Time Reduction</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                            <polyline points="17 6 23 6 23 12"></polyline>
+                        </svg>
+                    </div>
+                    <div class="metric-value">30-50%</div>
+                    <div class="metric-label">Productivity Gains</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Content -->
+    <article class="project-content">
+        <section class="project-section">
+            <div class="summary-metrics-grid">
+                <div class="summary-metric-item">
+                    <div class="summary-metric-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                    </div>
+                    <div class="summary-metric-label">Tenure</div>
+                    <div class="summary-metric-value">Nearly 1 Year</div>
+                </div>
+                <div class="summary-metric-item">
+                    <div class="summary-metric-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                            <polyline points="17 6 23 6 23 12"></polyline>
+                        </svg>
+                    </div>
+                    <div class="summary-metric-label">MVP Launch</div>
+                    <div class="summary-metric-value">4 Months</div>
+                </div>
+                <div class="summary-metric-item">
+                    <div class="summary-metric-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <div class="summary-metric-label">My Role</div>
+                    <div class="summary-metric-value">Senior Lead Product Designer</div>
+                </div>
+                <div class="summary-metric-item">
+                    <div class="summary-metric-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                        </svg>
+                    </div>
+                    <div class="summary-metric-label">Industry</div>
+                    <div class="summary-metric-value">Pharmaceutical</div>
+                </div>
+            </div>
+
+            <div class="text-center mb-xl">
+                <h3 class="section-title">Executive Summary</h3>
+                <p class="section-description">
+                    A deep dive into transforming pharmaceutical regulatory submissions through intelligent automation
+                    and user-centered design.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-3 gap-lg">
+                <div class="glass-card">
+                    <div class="mb-md">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+                            <circle cx="12" cy="12" r="10" />
+                            <circle cx="12" cy="12" r="6" />
+                            <circle cx="12" cy="12" r="2" />
+                        </svg>
+                    </div>
+                    <h4>The Challenge</h4>
+                    <p>80% of a medical writer's time was consumed by manual data gathering and formatting, leading to
+                        25-week submission timelines.</p>
+                </div>
+                <div class="glass-card">
+                    <div class="mb-md">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+                            <path
+                                d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+                            <path d="M9 18h6" />
+                            <path d="M10 22h4" />
+                        </svg>
+                    </div>
+                    <h4>The Solution</h4>
+                    <p>An AI-powered co-pilot that shifts the user's role from manual drafting to strategic content
+                        supervision and verification.</p>
+                </div>
+                <div class="glass-card">
+                    <div class="mb-md">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+                            <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                            <polyline points="9 22 9 12 15 12 15 22" />
+                        </svg>
+                    </div>
+                    <h4>The Impact</h4>
+                    <p>Reduction in submission timelines from 25 weeks to 8 weeks, with 100% adherence to eCTD
+                        compliance standards.</p>
+                </div>
+            </div>
+
+            <div class="mt-2xl text-center">
+                <img src="../assets/images/pharma_submissions/problem_statement2.png" alt="Challenge Overview"
+                    class="project-image framed-thin">
+            </div>
+
+            <div class="mt-2xl">
+                <h3 class="text-center mb-xl">Objectives and Goals</h3>
+                <p>
+                    As a Product Designer, I frame my objectives at the intersection of the <strong>Business Mandate
+                        (Speed)</strong> and the <strong>User Reality (Safety/Accuracy)</strong>. For this project, I
+                    built the narrative around three core pillars: eliminating "grunt work," establishing trust, and
+                    redefining the user's role.
+                </p>
+                <img src="../assets/images/pharma_submissions/goals.png" alt="Objectives and Goals"
+                    class="project-image framed-thin mt-md">
+            </div>
+
+            <div class="mt-2xl">
+                <h3 class="text-center mb-xl">Root Cause Analysis</h3>
+                <p>
+                    Understanding why the current process takes up to 25 weeks was critical. My analysis revealed
+                    deep-seated
+                    inefficiencies in how data is siloed and manually reconciled across various regulatory documents.
+                </p>
+                <img src="../assets/images/pharma_submissions/rca.png" alt="Root Cause Analysis"
+                    class="project-image framed-thin mt-md">
+            </div>
+
+            <div class="mt-2xl">
+                <h3 class="text-center mb-xl">My Role & Cross-Team Collaboration</h3>
+                <img src="../assets/images/v2_pharma_submissions/2-MyRole.png" alt="My Role and Collaboration"
+                    class="project-image framed-thin">
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h3 class="text-center mb-xl">My Process: The Test Tube Model</h3>
+            <img src="../assets/images/v2_pharma_submissions/3-MyProcess.png" alt="My Process: The Test Tube Model"
+                class="project-image framed-thin">
+        </section>
+
+        <div class="project-section">
+            <h3 class="text-center mb-xl">Understanding the Challenge</h3>
+            <p>
+                Developing a new pharmaceutical drug is a marathon, requiring over 15 years of clinical trials,
+                toxicology reports, and manufacturing testing. The 'Regulatory Submission' (1-2 years) is the critical
+                moment where
+                all those years of data must be consolidated into a single, flawless argument for health authorities.
+            </p>
+
+            <div class="mt-xl text-center">
+                <img src="../assets/images/v2_pharma_submissions/1-DrugDevelopmentJourney.png"
+                    alt="The Drug Development Journey" class="project-image framed-thin">
+            </div>
+
+            <p class="mt-xl">
+                Regulatory submission authoring is typically slow because writers must reconcile scattered data sources,
+                enforce CTD/eCTD (Common Technical Document) structures, and maintain cross‑document consistency.
+                80% of their time is spent on "grunt work"—manual formatting, data compilation, and compliance checking.
+            </p>
+
+            <div class="mt-xl text-center">
+                <h4 class="mb-lg">The Regulatory Submission Process</h4>
+                <img src="../assets/images/v2_pharma_submissions/4-RegulatorySubmissionProcess.png"
+                    alt="Regulatory Submission Process" class="project-image framed-thin">
+            </div>
+
+            <div class="mt-xl text-center">
+                <h4 class="mb-lg">Focus Area: High-Friction Points</h4>
+                <img src="../assets/images/v2_pharma_submissions/5-FocusArea.png" alt="Focus Area: High-Friction Points"
+                    class="project-image framed-thin">
+            </div>
+
+            <div class="mt-xl text-center">
+                <h4 class="mb-lg">Business & User Challenges</h4>
+                <img src="../assets/images/pharma_submissions/problem_statement3.png" alt="Business and User Challenges"
+                    class="project-image framed-thin">
+            </div>
+        </div>
+
+        <section class="project-section">
+            <h3 class="text-center mb-xl">User Research: Decoding the Drafting Experience</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-xl">
+                <div class="glass-card">
+                    <h4 class="mb-md">Qualitative Methodology</h4>
+                    <p>I conducted 6 in-depth interviews (60-minute sessions) with Medical Writers, Regulatory Leads,
+                        and Quality Reviewers. I asked participants to walk me through their real-time workarounds and
+                        friction points.</p>
+                </div>
+                <div class="glass-card">
+                    <h4 class="mb-md">Quantitative Baseline</h4>
+                    <ul class="list-none p-0">
+                        <li class="mb-md">
+                            <div class="flex justify-between mb-xs">
+                                <span>Manual creation as biggest pain point</span>
+                                <span class="font-bold">89%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 89%"></div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="flex justify-between mb-xs">
+                                <span>Would adopt AI if compliance is maintained</span>
+                                <span class="font-bold">91%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 91%"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-2xl">
+                <h4 class="text-center mb-xl">Affinity Mapping</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-lg">
+                    <div class="sticky-note-col">
+                        <h5 class="text-center mb-md">Workflow Challenges</h5>
+                        <div class="sticky-note" style="background: #FEF3C7; transform: rotate(-1deg);">Manual
+                            copy-paste from multiple sources</div>
+                        <div class="sticky-note mt-sm" style="background: #FEF3C7; transform: rotate(1deg);">No single
+                            source of truth</div>
+                        <div class="sticky-note mt-sm" style="background: #FEF3C7; transform: rotate(-2deg);">Version
+                            control is a nightmare</div>
+                    </div>
+                    <div class="sticky-note-col">
+                        <h5 class="text-center mb-md">Time & Efficiency</h5>
+                        <div class="sticky-note" style="background: #FFE4E6; transform: rotate(1deg);">2-3 weeks per
+                            document</div>
+                        <div class="sticky-note mt-sm" style="background: #FFE4E6; transform: rotate(-1deg);">80% time
+                            on formatting</div>
+                        <div class="sticky-note mt-sm" style="background: #FFE4E6; transform: rotate(2deg);">Rush
+                            requests cause errors</div>
+                    </div>
+                    <div class="sticky-note-col">
+                        <h5 class="text-center mb-md">Collaboration</h5>
+                        <div class="sticky-note" style="background: #DBEAFE; transform: rotate(-1.5deg);">Siloed team
+                            communication</div>
+                        <div class="sticky-note mt-sm" style="background: #DBEAFE; transform: rotate(1.2deg);">Email
+                            overload for reviews</div>
+                        <div class="sticky-note mt-sm" style="background: #DBEAFE; transform: rotate(-1deg);">Unclear
+                            section ownership</div>
+                    </div>
+                    <div class="sticky-note-col">
+                        <h5 class="text-center mb-md">Desired Features</h5>
+                        <div class="sticky-note" style="background: #D1FAE5; transform: rotate(1.5deg);">Template-based
+                            automation</div>
+                        <div class="sticky-note mt-sm" style="background: #D1FAE5; transform: rotate(-1deg);">
+                            AI-assisted drafting</div>
+                        <div class="sticky-note mt-sm" style="background: #D1FAE5; transform: rotate(2deg);">Compliance
+                            checking</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="project-section">
+            <h3 class="text-center mb-xl">Primary Users</h3>
+            <p>
+                The regulatory submission process involves a diverse set of experts, each with unique needs and pain
+                points.
+                Our solution caters to Medical Writers, Regulatory Leads, and Quality Reviewers, each playing a vital
+                role in
+                the drug approval lifecycle.
+            </p>
+            <img src="../assets/images/pharma_submissions/primary_users.png" alt="Primary Users"
+                class="project-image framed-thin mt-md">
+        </div>
+
+        <div class="project-section">
+            <h3 class="text-center mb-xl">Persona</h3>
+            <img src="../assets/images/pharma_submissions/persona.png" alt="Mariya Claire Persona"
+                class="project-image framed-thin mt-md">
+        </div>
+
+        <div class="project-section">
+            <em>why</em>. As the Product Designer, I needed to look beyond spreadsheets and enter the "black box" of
+            the medical writer’s daily reality.
+            </p>
+            <p>
+                I initiated a mixed-methods research phase. While I surveyed 45 regulatory professionals to establish a
+                quantitative baseline for AI receptivity, the core of my strategy relied on deep, qualitative
+                investigation.
+            </p>
+
+            <h4 class="mt-md">Methodology: Watch, Don't Just Listen</h4>
+            <p>
+                I conducted six in-depth interviews with medical writers, regulatory leads, and quality reviewers. These
+                60-minute sessions combined open-ended questions with contextual walkthroughs. I asked participants to
+                open their latest submissions and walk me through their real-time workarounds. This allowed me to see
+                the friction points they had become so accustomed to that they no longer thought to complain about them.
+            </p>
+
+
+
+            <img src="../assets/images/pharma_submissions/interview.png" alt="User Interviews"
+                class="project-image framed-thin mt-md">
+        </div>
+
+        <div class="project-section">
+            <h3>Quantitative Research</h3>
+            <p><strong>(45 regulatory affairs professionals)</strong></p>
+            <p>
+                Conducted with 45 regulatory affairs professionals, this survey aimed to understand their current
+                experience with submission documentation and their expectations for AI-assisted tools. Responses were
+                anonymous and used to improve internal workflows.
+            </p>
+            <img src="../assets/images/pharma_submissions/quantitative_research.png" alt="Quantitative Research"
+                class="project-image framed-thin mt-md">
+        </div>
+
+
+
+        <div class="project-section">
+            <h3 class="text-center mb-xl">Competitor Analysis</h3>
+            <p>
+                We weren't just trying to build another document generator; we were trying to solve a specific paradox:
+                achieving <strong>8-week submission</strong> timelines without sacrificing regulatory precision. To find
+                the best possible solution, I initiated a competitive analysis across three distinct categories.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-lg mt-xl">
+                <div class="glass-card">
+                    <h5 class="text-primary mb-sm">Industry Giants</h5>
+                    <p class="text-sm">Veeva, IQVIA, IBM. Strong backgrounds but often rigid and slow to adapt to
+                        agentic workflows.</p>
+                </div>
+                <div class="glass-card">
+                    <h5 class="text-primary mb-sm">Specialized Tools</h5>
+                    <p class="text-sm">Artos, Weave. Focused on document automation but lacked deep generative AI
+                        integration.</p>
+                </div>
+                <div class="glass-card">
+                    <h5 class="text-primary mb-sm">General AI</h5>
+                    <p class="text-sm">ChatGPT, Copilot, Copy.ai. High speed but lacked the regulatory guardrails and
+                        technical depth needed.</p>
+                </div>
+            </div>
+            <img src="../assets/images/pharma_submissions/competitor_analysis.png" alt="Competitor Analysis"
+                class="project-image framed-thin mt-md">
+        </div>
+
+        <div class="project-section">
+            <h3>Customer Journey Mapping</h3>
+            <p>
+                The customer journey map illustrates the collaboration between regulatory writers and the platform, from
+                analyzing existing submissions to exporting a regulator‑ready document. It emphasizes the
+                <strong>agentic layer</strong>, where the AI proactively recommends templates, suggests source
+                documents, and maintains confidence scores. This transforms a manual, error‑prone process into a
+                supervised, AI‑assisted workflow that keeps writers in full control of compliance and narrative quality.
+            </p>
+            <img src="../assets/images/pharma_submissions/customer_journey1.png" alt="Detailed Customer Journey"
+                class="project-image framed-thin mt-md">
+        </div>
+
+        <div class="project-section">
+            <h3>User Needs: Impact-Feasibility Matrix</h3>
+            <p>
+                The Impact-Feasibility Matrix helped prioritize features by evaluating their potential impact against
+                implementation complexity. We balanced high-value AI capabilities—like inline reference traceability and
+                agentic chat iteration—with regulatory constraints. This ensured focus on features delivering maximum
+                benefit in terms of time savings and trust while managing resource constraints.
+            </p>
+            <img src="../assets/images/pharma_submissions/user_needs.png" alt="Impact Feasibility Matrix"
+                class="project-image framed-thin mt-md">
+        </div>
+
+        <section class="project-section">
+            <div class="text-center mb-xl">
+                <span class="section-label">Solution Design</span>
+                <h2 class="section-title">User Flow</h2>
+                <p class="section-description">
+                    A streamlined process that keeps users in control while automating the heavy lifting.
+                </p>
+            </div>
+
+            <div class="flow-container">
+                <div class="flow-step-grid">
+                    <div class="flow-step">
+                        <div class="flow-icon-wrapper">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+                                <polyline points="14 2 14 8 20 8" />
+                            </svg>
+                        </div>
+                        <h4>Select Template</h4>
+                        <p>Choose eCTD module and target health authority</p>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-icon-wrapper">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+                                <path d="m2 22 1-1h3l9-9" />
+                                <path d="M3 21v-3l9-9" />
+                                <path d="m15 6 3.4-3.4a2.1 2.1 0 1 1 3 3L18 9l-3-3Z" />
+                            </svg>
+                        </div>
+                        <h4>AI Generation</h4>
+                        <p>System generates first draft using product data</p>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-icon-wrapper">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+                                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                                <path d="M18.5 2.5a2.121 2.121 0 1 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+                            </svg>
+                        </div>
+                        <h4>Review & Edit</h4>
+                        <p>User reviews, edits, and refines the content</p>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-icon-wrapper">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+                                <path d="m9 11 3 3L22 4" />
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                            </svg>
+                        </div>
+                        <h4>Compliance Check</h4>
+                        <p>Automated validation against regulatory standards</p>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-icon-wrapper">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+                                <line x1="22" y1="2" x2="11" y2="13" />
+                                <polyline points="22 2 15 22 11 13 2 9 22 2" />
+                            </svg>
+                        </div>
+                        <h4>Submit for Review</h4>
+                        <p>Route to stakeholders for final approval</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="project-section">
+            <h3>Task Flow</h3>
+            <img src="../assets/images/pharma_submissions/task_flow.png" alt="Task Flow"
+                class="project-image framed-thin mt-md">
+        </div>
+
+        <div class="project-section">
+            <h3>Information Architecture</h3>
+            <p>
+                Designing a robust Information Architecture (IA) was paramount. The goal was to simplify a complex,
+                multi-layered data structure into an intuitive, accessible framework that supports seamless navigation
+                and content generation.
+            </p>
+            <img src="../assets/images/pharma_submissions/ia.png" alt="Information Architecture"
+                class="project-image framed-thin mt-md">
+        </div>
+
+        <div class="project-section">
+            <h3>Prototype & Design</h3>
+
+            <h4 class="mt-lg">Low-Fidelity Prototype</h4>
+            <p>
+                The low-fidelity wireframes establish the user journey and core interactions, focusing on the flow from
+                project setup to AI-assisted drafting.
+            </p>
+            <div id="lfCarousel" class="wireframe-carousel frameless-container desktop mt-md">
+                <button class="carousel-btn carousel-btn-prev">‹</button>
+                <div id="lfTrack" class="carousel-track">
+                    <img src="../assets/images/pharma_submissions/lf_wireframe1.png" alt="Low Fidelity Wireframe 1"
+                        class="carousel-image">
+                    <img src="../assets/images/pharma_submissions/lf_wireframe2.png" alt="Low Fidelity Wireframe 2"
+                        class="carousel-image">
+                    <img src="../assets/images/pharma_submissions/lf_wireframe3.png" alt="Low Fidelity Wireframe 3"
+                        class="carousel-image">
+                    <img src="../assets/images/pharma_submissions/lf_wireframe4.png" alt="Low Fidelity Wireframe 4"
+                        class="carousel-image">
+                    <img src="../assets/images/pharma_submissions/lf_wireframe5.png" alt="Low Fidelity Wireframe 5"
+                        class="carousel-image">
+                    <img src="../assets/images/pharma_submissions/lf_wireframe6.png" alt="Low Fidelity Wireframe 6"
+                        class="carousel-image">
+                </div>
+                <button class="carousel-btn carousel-btn-next">›</button>
+            </div>
+            <div id="lfDots" class="carousel-dots"></div>
+
+            <h4 class="mt-lg">High-Fidelity Prototype</h4>
+            <p>
+                The high-fidelity designs bring the concept to life with realistic submission templates, mapped sources,
+                and a polished interface designed for trust and efficiency.
+            </p>
+
+            <div class="mt-2xl">
+                <!-- Item 1: Landing Page -->
+                <div class="feature-item">
+                    <div class="feature-content">
+                        <h5>Landing Page</h5>
+                        <p>A unified dashboard providing a comprehensive overview of all regulatory documents, allowing
+                            writers to jump back into recent work or generate new content instantly.</p>
+                        <ul>
+                            <li><strong>Dashboard:</strong> Overview of drafts, generated content, and completed files.
+                            </li>
+                            <li><strong>Document Cards:</strong> Displays type, business area, module, and regulatory
+                                section.</li>
+                            <li><strong>Activity Sections:</strong> Resume last edited, view AI-generated, or recent
+                                files.</li>
+                            <li><strong>Fast Actions:</strong> One-click "Generate" and global search across all
+                                documents.</li>
+                        </ul>
+                    </div>
+                    <div class="feature-image">
+                        <img src="../assets/images/pharma_submissions/hf_wireframe1.png" alt="Landing Page"
+                            class="project-image framed-thin">
+                    </div>
+                </div>
+
+                <!-- Item 2: Document Listing Page -->
+                <div class="feature-item">
+                    <div class="feature-content">
+                        <h5>Document Listing Page</h5>
+                        <p>A centralized repository to manage and track both individual and team documents. This
+                            structured view ensures transparency and simplifies the management of complex projects.</p>
+                        <ul>
+                            <li><strong>Categorized View:</strong> Browse by project, author, or status.</li>
+                            <li><strong>Rich Metadata:</strong> Title, author, product family, and drug compound.</li>
+                            <li><strong>Status Tracking:</strong> Real-time updates (Draft, Generated, Edit Completed).
+                            </li>
+                            <li><strong>Efficiency:</strong> Quick filters and search to locate specific versions.</li>
+                        </ul>
+                    </div>
+                    <div class="feature-image">
+                        <img src="../assets/images/pharma_submissions/hf_wireframe2.png" alt="Document Listing Page"
+                            class="project-image framed-thin">
+                    </div>
+                </div>
+
+                <!-- Item 3: Step 1: Document Configuration -->
+                <div class="feature-item">
+                    <div class="feature-content">
+                        <h5>3-Step Generation</h5>
+                        <h6>Step 1 - Configuration</h6>
+                        <p>The first step in the AI drafting workflow where users define the scope and parameters of the
+                            target document to ensure regulatory alignment.</p>
+                        <ul>
+                            <li><strong>Parameters:</strong> Define document type, output format, and health authority.
+                            </li>
+                            <li><strong>Metadata:</strong> Capture product details and specific regulatory modules.</li>
+                            <li><strong>Compliance:</strong> Selection of relevant templates to meet submission
+                                standards.</li>
+                        </ul>
+                    </div>
+                    <div class="feature-image">
+                        <img src="../assets/images/pharma_submissions/hf_wireframe3.png" alt="Document Configuration"
+                            class="project-image framed-thin">
+                    </div>
+                </div>
+
+                <!-- Item 4: Step 2: Source Files Mapping -->
+                <div class="feature-item no-reverse">
+                    <div class="feature-content">
+                        <h6>Step 2 - Source Mapping</h6>
+                        <p>A critical stage where users upload and map the source documents that will inform the AI’s
+                            content generation, ensuring data integrity.</p>
+                        <ul>
+                            <li><strong>Source Review:</strong> View proposed source files with types and page ranges.
+                            </li>
+                            <li><strong>Interactive Mapping:</strong> Add or remove source materials as needed.</li>
+                            <li><strong>Traceability:</strong> Explicit mapping between sources and regulatory sections.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="feature-image">
+                        <img src="../assets/images/pharma_submissions/hf_wireframe4.png" alt="Source Mapping"
+                            class="project-image framed-thin">
+                    </div>
+                </div>
+
+                <!-- Item 5: Step 3: Summary and Final Review -->
+                <div class="feature-item">
+                    <div class="feature-content">
+                        <h6>Step 3 - Final Review</h6>
+                        <p>The final validation screen provides a complete inventory of the generation setup,
+                            establishing trust through full traceability before processing begins.</p>
+                        <ul>
+                            <li><strong>Audit Trail:</strong> User attribution and version tracking for all sources.
+                            </li>
+                            <li><strong>Lineage:</strong> Clear visibility into which files inform which regulatory
+                                sections.</li>
+                            <li><strong>Validation:</strong> Final check of document IDs and upload dates.</li>
+                            <li><strong>Confirm:</strong> Save draft configurations or proceed to generate.</li>
+                        </ul>
+                    </div>
+                    <div class="feature-image">
+                        <img src="../assets/images/pharma_submissions/hf_wireframe5.png" alt="Final Review"
+                            class="project-image framed-thin">
+                    </div>
+                </div>
+
+                <!-- Item 6: Generated Document Interface -->
+                <div class="feature-item">
+                    <div class="feature-content">
+                        <h5>Generated Document Interface</h5>
+                        <p>A sophisticated editing environment where AI generation meets human expertise, featuring
+                            built-in quality controls and assistant tools.</p>
+                        <ul>
+                            <li><strong>Structured Viewer:</strong> Easy navigation through hierarchical sections.</li>
+                            <li><strong>Inline Editing:</strong> Update text and data tables while preserving
+                                formatting.</li>
+                            <li><strong>AI Insights:</strong> Quality checks for structure, compliance, and accuracy.
+                            </li>
+                            <li><strong>AI Assistant:</strong> Chat-based support for refining content and compliance.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="feature-image">
+                        <img src="./assets/images/pharma_submissions/hf_wireframe6.png" alt="Document Interface"
+                            class="project-image framed-thin">
+                    </div>
+                </div>
+
+                <!-- Item 7: Inline Reference Panel -->
+                <div class="feature-item">
+                    <div class="feature-content">
+                        <h5>Inline Reference Panel</h5>
+                        <p>Enhancing trust by showing the exact source data used for each piece of generated content.
+                            This side-by-side view allows for rapid verification of AI output.</p>
+                        <ul>
+                            <li><strong>Source Chunks:</strong> Displays relevant text snippets alongside the draft.
+                            </li>
+                            <li><strong>Direct Links:</strong> Jump into original source documents for deep review.</li>
+                            <li><strong>Traceability:</strong> Zero-effort verification of technical and medical claims.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="feature-image">
+                        <img src="../assets/images/pharma_submissions/hf_wireframe7.png" alt="Inline Reference Panel"
+                            class="project-image framed-thin">
+                    </div>
+                </div>
+
+                <!-- Item 8: Usage Analytics -->
+                <div class="feature-item full-width">
+                    <div class="feature-image">
+                        <img src="../assets/images/pharma_submissions/hf_wireframe8.png" alt="Usage Analytics"
+                            class="project-image framed-thin">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-section">
+            <h3 class="text-center mb-xl">Usability Testing</h3>
+            <p>
+                To validate our design decisions, I conducted several rounds of usability testing with regulatory
+                affairs
+                professionals. This iterative process allowed us to identify and address friction points, ensuring that
+                the final platform is not only efficient but also intuitive and trustworthy for its expert users.
+            </p>
+            <img src="../assets/images/pharma_submissions/usability_testing.png" alt="Usability Testing"
+                class="project-image framed-thin mt-md">
+        </div>
+
+        <div class="project-section">
+            <h3>Usability Testing</h3>
+            <p>
+                The goal of usability testing was to validate whether regulatory writers could comfortably work with the
+                AI co‑pilot throughout the drafting workflow without sacrificing control. We focused on learnability,
+                transparency, and task efficiency.
+            </p>
+
+            <h4 class="mt-md">Participants and Setup</h4>
+            <ul class="mt-sm">
+                <li><strong>6 participants</strong> across roles: Senior Medical Writers, Regulatory Affairs Leads, and
+                    Quality/CMC Reviewers.</li>
+                <li><strong>5–15 years</strong> of experience in regulatory submissions.</li>
+                <li><strong>60–90 minute moderated sessions</strong> conducted remotely.</li>
+                <li><strong>Scenario-based scripts</strong> using realistic templates and sample AI outputs to ensure
+                    domain relevance.</li>
+            </ul>
+            <img src="./assets/images/pharma_submissions/usability_testing.png" alt="Usability Testing Results"
+                class="project-image framed-thin mt-md">
+        </div>
+
+        <section class="project-section">
+            <div class="text-center mb-xl">
+                <span class="section-label">Success Metrics</span>
+                <h2 class="section-title">Results & Outcomes</h2>
+                <p class="section-description">
+                    The platform delivered significant efficiency gains while maintaining the highest regulatory
+                    standards.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+                <div class="glass-card text-center">
+                    <div class="metric-value font-bold text-4xl text-primary mb-xs">68%</div>
+                    <div class="metric-label font-bold mb-xs">Timeline Reduction</div>
+                    <p class="text-sm">From 25 weeks down to 8 weeks for a complete submission draft.</p>
+                </div>
+                <div class="glass-card text-center">
+                    <div class="metric-value font-bold text-4xl text-primary mb-xs">100%</div>
+                    <div class="metric-label font-bold mb-xs">eCTD Compliance</div>
+                    <p class="text-sm">Zero errors flagged during automated pre-submission readiness checks.</p>
+                </div>
+                <div class="glass-card text-center">
+                    <div class="metric-value font-bold text-4xl text-primary mb-xs">95%</div>
+                    <div class="metric-label font-bold mb-xs">Data Accuracy</div>
+                    <p class="text-sm">High-precision AI extraction from clinical source documents.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="project-section">
+            <h2 class="section-title text-center mb-2xl">Future Roadmap & Key Learnings</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-2xl">
+                <div>
+                    <h3 class="mb-xl">Future Roadmap</h3>
+                    <div class="flex-col gap-lg">
+                        <div class="glass-card">
+                            <h5 class="text-primary mb-xs">Extended Agent Capabilities</h5>
+                            <p class="text-sm">Transitioning from drafting assistants to autonomous agents capable of
+                                performing complex pre-submission readiness checks and multi-document consistency
+                                audits.</p>
+                        </div>
+                        <div class="glass-card mt-md">
+                            <h5 class="text-primary mb-xs">Multimodal Intelligence</h5>
+                            <p class="text-sm">Expanding the agent's ability to interpret and generate complex medical
+                                charts, diagrams, and high-resolution imaging data directly from source material.</p>
+                        </div>
+                        <div class="glass-card mt-md">
+                            <h5 class="text-primary mb-xs">Region-Specific AI</h5>
+                            <p class="text-sm">Developing specialized LLM modules tailored for specific regulatory
+                                bodies (FDA, EMA, NMPA) to ensure localized compliance by default.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="mb-xl">Key Learnings</h3>
+                    <div class="flex-col gap-lg">
+                        <div class="glass-card">
+                            <h4 class="text-primary mb-xs">Control > Speed</h4>
+                            <p class="text-sm">For expert users, the ability to audit and override AI decisions is far
+                                more valuable than pure automation speed. Trust is built through visibility, not magic.
+                            </p>
+                        </div>
+                        <div class="glass-card mt-md">
+                            <h4 class="text-primary mb-xs">Explainability is Key</h4>
+                            <p class="text-sm">The agent must not just provide an answer, but also the 'why' behind it.
+                                Citations and source mapping are the currency of trust in pharma.</p>
+                        </div>
+                        <div class="glass-card mt-md">
+                            <h4 class="text-primary mb-xs">Agentic Co-creation</h4>
+                            <p class="text-sm">Moving from "AI as a tool" to "AI as a collaborator" requires a design
+                                language that emphasizes iterative feedback and shared context.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </article>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <button class="lightbox-close" id="lightboxClose">&times;</button>
+        <button class="lightbox-nav lightbox-nav-prev" id="lightboxPrev">‹</button>
+        <button class="lightbox-nav lightbox-nav-next" id="lightboxNext">›</button>
+        <div class="lightbox-content">
+            <img id="lightboxImage" class="lightbox-image" src="" alt="Zoomed Image">
+        </div>
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+    </div>
+
+    <!-- Navigation Footer -->
+    <div class="container mb-3xl project-nav-buttons">
+        <div class="flex justify-between">
+            <a href="index.html#work" class="btn btn-secondary">← Back to Work</a>
+            <a href="pharma-enterprise-search.html" class="btn btn-secondary">Next Project →</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3 class="footer-title">Let's Connect</h3>
+                    <p class="footer-subtitle">
+                        Interested in working together?
+                    </p>
+                </div>
+
+                <div class="footer-links">
+                    <a href="https://www.linkedin.com/in/reshma-k-v" class="social-link" target="_blank"
+                        rel="noopener noreferrer" aria-label="LinkedIn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Reshma K V. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+    <script src="../js/carousel.js"></script>
+    <script src="../js/animations.js"></script>
+</body>
+
+</html>

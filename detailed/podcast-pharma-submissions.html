@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revolutionizing Pharma Submissions with AI | Podcast UX Journey</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --background: 40 30% 98%;
+            --foreground: 222 47% 15%;
+            --card: 0 0% 100%;
+            --card-foreground: 222 47% 15%;
+            --primary: 24 95% 50%;
+            --primary-foreground: 0 0% 100%;
+            --secondary: 220 20% 94%;
+            --secondary-foreground: 222 47% 20%;
+            --muted: 220 20% 96%;
+            --muted-foreground: 220 15% 45%;
+            --accent: 180 60% 40%;
+            --accent-foreground: 0 0% 100%;
+            --border: 220 20% 88%;
+            --radius: 1rem;
+            --interviewer: 200 80% 45%;
+            --interviewer-bg: 200 40% 95%;
+            --designer: 24 95% 50%;
+            --designer-bg: 24 40% 96%;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            border-color: hsl(var(--border));
+        }
+
+        body {
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+        }
+
+        /* Layout Utilities */
+        .flex {
+            display: flex;
+        }
+
+        .grid {
+            display: grid;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .justify-center {
+            justify-content: center;
+        }
+
+        .gap-2 {
+            gap: 0.5rem;
+        }
+
+        .gap-3 {
+            gap: 0.75rem;
+        }
+
+        .gap-4 {
+            gap: 1rem;
+        }
+
+        .gap-6 {
+            gap: 1.5rem;
+        }
+
+        .space-y-1>*+* {
+            margin-top: 0.25rem;
+        }
+
+        .space-y-2>*+* {
+            margin-top: 0.5rem;
+        }
+
+        .space-y-3>*+* {
+            margin-top: 0.75rem;
+        }
+
+        .space-y-4>*+* {
+            margin-top: 1rem;
+        }
+
+        .space-y-8>*+* {
+            margin-top: 2rem;
+        }
+
+        .mt-1 {
+            margin-top: 0.25rem;
+        }
+
+        .mt-2 {
+            margin-top: 0.5rem;
+        }
+
+        .mt-3 {
+            margin-top: 0.75rem;
+        }
+
+        .mb-1 {
+            margin-bottom: 0.25rem;
+        }
+
+        .mb-2 {
+            margin-bottom: 0.5rem;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .mb-6 {
+            margin-bottom: 1.5rem;
+        }
+
+        .mb-8 {
+            margin-bottom: 2rem;
+        }
+
+        .mb-10 {
+            margin-bottom: 2.5rem;
+        }
+
+        .py-12 {
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+
+        .py-16 {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+
+        .pt-16 {
+            padding-top: 4rem;
+        }
+
+        .pb-20 {
+            padding-bottom: 5rem;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .max-w-2xl {
+            max-width: 42rem;
+        }
+
+        .max-w-4xl {
+            max-width: 56rem;
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .ml-auto {
+            margin-left: auto;
+        }
+
+        @media (min-width: 768px) {
+            .md\:grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .md\:grid-cols-4 {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+
+            .md\:text-xl {
+                font-size: 1.25rem;
+            }
+
+            .md\:text-4xl {
+                font-size: 2.25rem;
+            }
+
+            .md\:text-6xl {
+                font-size: 3.75rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .lg\:text-7xl {
+                font-size: 4.5rem;
+            }
+        }
+
+        /* Components */
+        .glass {
+            background-color: hsla(var(--card), 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid hsla(var(--border), 0.5);
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        .text-gradient-primary {
+            background: linear-gradient(to right, hsl(var(--primary)), #fb923c, #fcd34d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .text-gradient-accent {
+            background: linear-gradient(to right, hsl(var(--accent)), #67e8f9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glow-primary {
+            box-shadow: 0 0 40px -10px hsla(var(--primary), 0.4);
+        }
+
+        .glow-accent {
+            box-shadow: 0 0 40px -10px hsla(var(--accent), 0.4);
+        }
+
+        .bubble-interviewer {
+            background: linear-gradient(to bottom right, hsl(var(--interviewer-bg)), hsl(200, 30%, 98%));
+            border-left: 4px solid hsl(var(--interviewer));
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-radius: var(--radius);
+        }
+
+        .bubble-designer {
+            background: linear-gradient(to bottom right, hsl(var(--designer-bg)), hsl(24, 30%, 98%));
+            border-left: 4px solid hsl(var(--primary));
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-radius: var(--radius);
+        }
+
+        /* Animations */
+        .animate-fade-up {
+            opacity: 0;
+            animation: fadeUp 0.6s ease-out forwards;
+        }
+
+        .animate-slide-in-left {
+            opacity: 0;
+            animation: slideInLeft 0.5s ease-out forwards;
+        }
+
+        .animate-slide-in-right {
+            opacity: 0;
+            animation: slideInRight 0.5s ease-out forwards;
+        }
+
+        .animate-pulse-soft {
+            animation: pulseSoft 2s ease-in-out infinite;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pulseSoft {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.7;
+            }
+        }
+
+        /* Custom Styles for conversion */
+        .stat-card {
+            padding: 1.5rem;
+            text-align: center;
+            border-radius: 0.75rem;
+        }
+
+        .stat-value {
+            font-size: 1.875rem;
+            font-weight: 700;
+        }
+
+        .chat-bubble {
+            display: flex;
+            gap: 1rem;
+            max-width: 56rem;
+            margin-bottom: 2rem;
+        }
+
+        .avatar-container {
+            flex-shrink: 0;
+        }
+
+        .avatar {
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 9999px;
+            overflow: hidden;
+            object-fit: cover;
+        }
+
+        .bubble-content {
+            flex: 1;
+            padding: 1.25rem;
+            border-radius: 1rem;
+        }
+
+        .speaker-name {
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .text-primary {
+            color: hsl(var(--primary));
+        }
+
+        .text-accent {
+            color: hsl(var(--accent));
+        }
+
+        .text-interviewer {
+            color: hsl(var(--interviewer));
+        }
+
+        .text-muted-foreground {
+            color: hsl(var(--muted-foreground));
+        }
+
+        .text-sm {
+            font-size: 0.875rem;
+        }
+
+        .text-lg {
+            font-size: 1.125rem;
+        }
+
+        .text-2xl {
+            font-size: 1.5rem;
+        }
+
+        .text-3xl {
+            font-size: 1.875rem;
+        }
+
+        .text-4xl {
+            font-size: 2.25rem;
+        }
+
+        .font-bold {
+            font-weight: 700;
+        }
+
+        .font-semibold {
+            font-weight: 600;
+        }
+
+        .font-medium {
+            font-weight: 500;
+        }
+
+        .rounded-full {
+            border-radius: 9999px;
+        }
+
+        .rounded-lg {
+            border-radius: 0.5rem;
+        }
+
+        .rounded-xl {
+            border-radius: 0.75rem;
+        }
+
+        .rounded-2xl {
+            border-radius: 1rem;
+        }
+
+        .list-disc {
+            list-style-type: disc;
+        }
+
+        .list-inside {
+            list-style-position: inside;
+        }
+
+        .highlight-box {
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border-left: 4px solid transparent;
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .highlight-insight {
+            border-left-color: hsl(var(--accent));
+            background-color: hsla(var(--accent), 0.05);
+        }
+
+        .highlight-challenge {
+            border-left-color: #ef4444;
+            background-color: rgba(239, 68, 68, 0.05);
+        }
+
+        .highlight-solution {
+            border-left-color: #22c55e;
+            background-color: rgba(34, 197, 94, 0.05);
+        }
+
+        .highlight-quote {
+            border-left-color: hsl(var(--primary));
+            background-color: hsla(var(--primary), 0.05);
+        }
+
+        .section-divider {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 3rem 0;
+        }
+
+        .divider-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, hsl(var(--border)), transparent);
+        }
+
+        .tag-pill {
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="min-h-screen">
+        <!-- Header -->
+        <header class="relative overflow-hidden">
+            <div class="absolute inset-0"
+                style="background: linear-gradient(to bottom, hsla(var(--primary), 0.1), hsl(var(--background)), hsl(var(--background)));">
+            </div>
+
+            <div class="absolute top-20 left-10 w-72 h-72 rounded-full blur-3xl"
+                style="background-color: hsla(var(--primary), 0.2);"></div>
+            <div class="absolute top-40 right-10 w-96 h-96 rounded-full blur-3xl"
+                style="background-color: hsla(var(--accent), 0.1);"></div>
+
+            <div class="relative container pt-16 pb-20">
+                <div class="flex justify-center mb-8 animate-fade-up" style="animation-delay: 100ms;">
+                    <div class="flex items-center gap-2 px-4 py-2 glass rounded-full">
+                        <i data-lucide="mic" class="text-primary animate-pulse-soft"
+                            style="width: 16px; height: 16px;"></i>
+                        <span class="text-sm font-medium">UX Design Podcast</span>
+                    </div>
+                </div>
+
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-center mb-6 animate-fade-up"
+                    style="animation-delay: 200ms;">
+                    <span class="text-gradient-primary">Revolutionizing</span><br>
+                    <span style="color: hsl(var(--foreground));">Pharma Submissions</span><br>
+                    <span class="text-gradient-accent">with AI</span>
+                </h1>
+
+                <p class="text-lg md:text-xl text-muted-foreground text-center max-w-2xl mx-auto mb-10 animate-fade-up"
+                    style="animation-delay: 300ms;">
+                    A conversation with Reshma, Lead Product Designer, on transforming pharmaceutical regulatory
+                    submissions through intelligent automation
+                </p>
+
+                <div class="flex justify-center gap-6 text-sm text-muted-foreground animate-fade-up"
+                    style="animation-delay: 400ms;">
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="headphones" style="width: 16px; height: 16px;"></i>
+                        <span>Episode 42</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i data-lucide="clock" style="width: 16px; height: 16px;"></i>
+                        <span>25 min read</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Stats Section -->
+        <section class="container py-12">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="glass stat-card animate-fade-up glow-primary" style="animation-delay: 650ms;">
+                    <div class="text-3xl md:text-4xl font-bold text-gradient-primary mb-2">70%</div>
+                    <div class="text-sm text-muted-foreground">Time Saved</div>
+                </div>
+                <div class="glass stat-card animate-fade-up glow-primary" style="animation-delay: 800ms;">
+                    <div class="text-3xl md:text-4xl font-bold text-gradient-primary mb-2">50+</div>
+                    <div class="text-sm text-muted-foreground">Users Tested</div>
+                </div>
+                <div class="glass stat-card animate-fade-up glow-primary" style="animation-delay: 950ms;">
+                    <div class="text-3xl md:text-4xl font-bold text-gradient-primary mb-2">3x</div>
+                    <div class="text-sm text-muted-foreground">Faster Submissions</div>
+                </div>
+                <div class="glass stat-card animate-fade-up glow-primary" style="animation-delay: 1100ms;">
+                    <div class="text-3xl md:text-4xl font-bold text-gradient-primary mb-2">95%</div>
+                    <div class="text-sm text-muted-foreground">Accuracy</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conversation -->
+        <section class="container py-12 space-y-8">
+            <!-- Divider 1 -->
+            <div class="section-divider animate-fade-up" style="animation-delay: 1250ms;">
+                <div class="divider-line"></div>
+                <span class="px-4 py-2 glass rounded-full text-sm text-muted-foreground">The Introduction</span>
+                <div class="divider-line"></div>
+            </div>
+
+            <!-- Chat 1 -->
+            <div class="chat-bubble animate-slide-in-left" style="animation-delay: 1400ms;">
+                <div class="avatar-container">
+                    <div class="avatar glow-accent" style="ring: 2px solid hsla(var(--interviewer), 0.5);">
+                        <img src="../assets/images/interviewer-avatar.jpg" alt="Alex Chen" class="avatar">
+                    </div>
+                </div>
+                <div class="bubble-content bubble-interviewer">
+                    <div class="speaker-name text-interviewer">Alex Chen • UX Guild Host</div>
+                    <div class="text-sm leading-relaxed">
+                        <p>Welcome back to the UX Guild Podcast! Today I'm thrilled to have Reshma with us — she's the
+                            Lead Product Designer behind one of the most impactful AI transformations in pharmaceutical
+                            tech. Reshma, thanks for joining!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat 2 -->
+            <div class="chat-bubble animate-slide-in-right ml-auto"
+                style="animation-delay: 1550ms; flex-direction: row-reverse;">
+                <div class="avatar-container">
+                    <div class="avatar glow-primary" style="ring: 2px solid hsla(var(--primary), 0.5);">
+                        <img src="../assets/images/designer-avatar.jpg" alt="Reshma" class="avatar">
+                    </div>
+                </div>
+                <div class="bubble-content bubble-designer">
+                    <div class="speaker-name text-primary">Reshma • Lead Product Designer</div>
+                    <div class="text-sm leading-relaxed">
+                        <p>Thanks Alex! I'm excited to share this journey. This project was genuinely one of the most
+                            challenging yet rewarding experiences of my career.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat 3 -->
+            <div class="chat-bubble animate-slide-in-left" style="animation-delay: 1700ms;">
+                <div class="avatar-container">
+                    <div class="avatar glow-accent">
+                        <img src="../assets/images/interviewer-avatar.jpg" alt="Alex Chen" class="avatar">
+                    </div>
+                </div>
+                <div class="bubble-content bubble-interviewer">
+                    <div class="speaker-name text-interviewer">Alex Chen • UX Guild Host</div>
+                    <div class="text-sm leading-relaxed">
+                        <p>Let's dive right in. For those unfamiliar with pharma submissions — what exactly were you
+                            trying to solve?</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat 4 -->
+            <div class="chat-bubble animate-slide-in-right ml-auto"
+                style="animation-delay: 1850ms; flex-direction: row-reverse;">
+                <div class="avatar-container">
+                    <div class="avatar glow-primary">
+                        <img src="../assets/images/designer-avatar.jpg" alt="Reshma" class="avatar">
+                    </div>
+                </div>
+                <div class="bubble-content bubble-designer">
+                    <div class="speaker-name text-primary">Reshma • Lead Product Designer</div>
+                    <div class="text-sm leading-relaxed space-y-3">
+                        <p>So, developing a new pharmaceutical drug is a marathon — we're talking over a decade of
+                            clinical trials, toxicology reports, and manufacturing testing. The "Regulatory Submission"
+                            is this critical moment where all those years of data must be consolidated into a single,
+                            flawless argument for health authorities.</p>
+                        <div class="highlight-box highlight-challenge animate-fade-up" style="animation-delay: 2000ms;">
+                            <i data-lucide="alert-triangle"
+                                style="width: 20px; height: 20px; color: #ef4444; flex-shrink: 0; margin-top: 2px;"></i>
+                            <div class="text-sm">Our drafting process was taking 16 to 25 weeks. The industry is pushing
+                                for single-digit week timelines, but we were nowhere close.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divider 2 -->
+            <div class="section-divider animate-fade-up" style="animation-delay: 2150ms;">
+                <div class="divider-line"></div>
+                <span class="px-4 py-2 glass rounded-full text-sm text-muted-foreground">The Problem</span>
+                <div class="divider-line"></div>
+            </div>
+
+            <!-- Chat 5 -->
+            <div class="chat-bubble animate-slide-in-left" style="animation-delay: 2300ms;">
+                <div class="avatar-container">
+                    <div class="avatar glow-accent">
+                        <img src="../assets/images/interviewer-avatar.jpg" alt="Alex Chen" class="avatar">
+                    </div>
+                </div>
+                <div class="bubble-content bubble-interviewer">
+                    <div class="speaker-name text-interviewer">Alex Chen • UX Guild Host</div>
+                    <div class="text-sm leading-relaxed">
+                        <p>25 weeks? That's over 6 months just for document preparation. What was causing such delays?
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat 6 -->
+            <div class="chat-bubble animate-slide-in-right ml-auto"
+                style="animation-delay: 2450ms; flex-direction: row-reverse;">
+                <div class="avatar-container">
+                    <div class="avatar glow-primary">
+                        <img src="../assets/images/designer-avatar.jpg" alt="Reshma" class="avatar">
+                    </div>
+                </div>
+                <div class="bubble-content bubble-designer">
+                    <div class="speaker-name text-primary">Reshma • Lead Product Designer</div>
+                    <div class="text-sm leading-relaxed space-y-3">
+                        <p>That's exactly what I needed to uncover. The root causes were fascinating — and frustrating.
+                            Writers had to reconcile scattered data sources, enforce eCTD structures (that's Common
+                            Technical Document), and maintain cross-document consistency while meeting aggressive filing
+                            targets.</p>
+                        <div class="highlight-box highlight-insight animate-fade-up" style="animation-delay: 2600ms;">
+                            <i data-lucide="lightbulb" class="text-accent"
+                                style="width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px;"></i>
+                            <div class="text-sm">80% of a medical writer's time was consumed by manual formatting, data
+                                compilation, and compliance checking — not actual scientific writing.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat 7 -->
+            <div class="chat-bubble animate-slide-in-left" style="animation-delay: 2750ms;">
+                <div class="avatar-container">
+                    <div class="avatar glow-accent">
+                        <img src="../assets/images/interviewer-avatar.jpg" alt="Alex Chen" class="avatar">
+                    </div>
+                </div>
+                <div class="bubble-content bubble-interviewer">
+                    <div class="speaker-name text-interviewer">Alex Chen • UX Guild Host</div>
+                    <div class="text-sm leading-relaxed">
+                        <p>So highly educated scientists were essentially doing data entry work?</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat 8 -->
+            <div class="chat-bubble animate-slide-in-right ml-auto"
+                style="animation-delay: 2900ms; flex-direction: row-reverse;">
+                <div class="avatar-container">
+                    <div class="avatar glow-primary">
+                        <img src="../assets/images/designer-avatar.jpg" alt="Reshma" class="avatar">
+                    </div>
+                </div>
+                <div class="bubble-content bubble-designer">
+                    <div class="speaker-name text-primary">Reshma • Lead Product Designer</div>
+                    <div class="text-sm leading-relaxed">
+                        <p>Exactly! These are people capable of complex medical argumentation, being forced to act as
+                            data entry clerks. Their frustration wasn't about the difficulty of the work — it was about
+                            its low value relative to their expertise. That insight became central to our design
+                            philosophy.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divider 3 -->
+            <div class="section-divider animate-fade-up" style="animation-delay: 3050ms;">
+                <div class="divider-line"></div>
+                <span class="px-4 py-2 glass rounded-full text-sm text-muted-foreground">Research Deep Dive</span>
+                <div class="divider-line"></div>
+            </div>
+
+            <!-- Chat 9 -->
+            <div class="chat-bubble animate-slide-in-left" style="animation-delay: 3200ms;">
+                <div class="avatar-container">
+                    <div class="avatar glow-accent">
+                        <img src="../assets/images/interviewer-avatar.jpg" alt="Alex Chen" class="avatar">
+                    </div>
+                </div>
+                <div class="bubble-content bubble-interviewer">
+                    <div class="speaker-name text-interviewer">Alex Chen • UX Guild Host</div>
+                    <div class="text-sm leading-relaxed">
+                        <p>Tell me about your research approach. How did you uncover these insights?</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat 10 -->
+            <div class="chat-bubble animate-slide-in-right ml-auto"
+                style="animation-delay: 3350ms; flex-direction: row-reverse;">
+                <div class="avatar-container">
+                    <div class="avatar glow-primary">
+                        <img src="../assets/images/designer-avatar.jpg" alt="Reshma" class="avatar">
+                    </div>
+                </div>
+                <div class="bubble-content bubble-designer">
+                    <div class="speaker-name text-primary">Reshma • Lead Product Designer</div>
+                    <div class="text-sm leading-relaxed space-y-3">
+                        <p>I used a mixed-methods approach. We surveyed 45 regulatory professionals for quantitative
+                            baselines, but the real gold came from qualitative investigation.</p>
+                        <p>I conducted six in-depth interviews with medical writers, regulatory leads, and quality
+                            reviewers. These were 60-minute sessions where I asked participants to open their actual
+                            submissions and walk me through their real-time workarounds.</p>
+                        <div class="highlight-box highlight-insight animate-fade-up" style="animation-delay: 3500ms;">
+                            <i data-lucide="lightbulb" class="text-accent"
+                                style="width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px;"></i>
+                            <div class="text-sm">My methodology was "Watch, Don't Just Listen." This revealed friction
+                                points they'd become so accustomed to that they no longer thought to complain about
+                                them.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat 11 -->
+            <div class="chat-bubble animate-slide-in-left" style="animation-delay: 3650ms;">
+                <div class="avatar-container">
+                    <div class="avatar glow-accent">
+                        <img src="../assets/images/interviewer-avatar.jpg" alt="Alex Chen" class="avatar">
+                    </div>
+                </div>
+                <div class="bubble-content bubble-interviewer">
+                    <div class="speaker-name text-interviewer">Alex Chen • UX Guild Host</div>
+                    <div class="text-sm leading-relaxed">
+                        <p>What patterns emerged from your affinity mapping?</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat 12 -->
+            <div class="chat-bubble animate-slide-in-right ml-auto"
+                style="animation-delay: 3800ms; flex-direction: row-reverse;">
+                <div class="avatar-container">
+                    <div class="avatar glow-primary">
+                        <img src="../assets/images/designer-avatar.jpg" alt="Reshma" class="avatar">
+                    </div>
+                </div>
+                <div class="bubble-content bubble-designer">
+                    <div class="speaker-name text-primary">Reshma • Lead Product Designer</div>
+                    <div class="text-sm leading-relaxed">
+                        <p>Four major themes:</p>
+                        <div class="grid md:grid-cols-2 gap-3 mt-3">
+                            <div class="glass rounded-lg p-3">
+                                <div class="font-semibold text-primary mb-1">Workflow Challenges</div>
+                                <ul class="text-sm text-muted-foreground space-y-1">
+                                    <li>• Manual copy-paste from multiple sources</li>
+                                    <li>• No single source of truth</li>
+                                    <li>• Version control nightmares</li>
+                                </ul>
+                            </div>
+                            <div class="glass rounded-lg p-3">
+                                <div class="font-semibold text-primary mb-1">Time & Efficiency</div>
+                                <ul class="text-sm text-muted-foreground space-y-1">
+                                    <li>• 2-3 weeks per document</li>
+                                    <li>• 80% time on formatting</li>
+                                    <li>• Rush requests cause errors</li>
+                                </ul>
+                            </div>
+                            <div class="glass rounded-lg p-3">
+                                <div class="font-semibold text-primary mb-1">Collaboration Issues</div>
+                                <ul class="text-sm text-muted-foreground space-y-1">
+                                    <li>• Siloed team communication</li>
+                                    <li>• Email overload for reviews</li>
+                                    <li>• Unclear section ownership</li>
+                                </ul>
+                            </div>
+                            <div class="glass rounded-lg p-3">
+                                <div class="font-semibold text-accent mb-1">Desired Features</div>
+                                <ul class="text-sm text-muted-foreground space-y-1">
+                                    <li>• Template-based automation</li>
+                                    <li>• AI-assisted drafting</li>
+                                    <li>• Integrated review workflow</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divider 4 -->
+            <div class="section-divider animate-fade-up" style="animation-delay: 3950ms;">
+                <div class="divider-line"></div>
+                <span class="px-4 py-2 glass rounded-full text-sm text-muted-foreground">Strategic Objectives</span>
+                <div class="divider-line"></div>
+            </div>
+
+            <!-- Chat 13 -->
+            <div class="chat-bubble animate-slide-in-left" style="animation-delay: 4100ms;">
+                <div class="avatar-container">
+                    <div class="avatar glow-accent">
+                        <img src="../assets/images/interviewer-avatar.jpg" alt="Alex Chen" class="avatar">
+                    </div>
+                </div>
+                <div class="bubble-content bubble-interviewer">
+                    <div class="speaker-name text-interviewer">Alex Chen • UX Guild Host</div>
+                    <div class="text-sm leading-relaxed">
+                        <p>How did you frame your design objectives after this research?</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat 14 -->
+            <div class="chat-bubble animate-slide-in-right ml-auto"
+                style="animation-delay: 4250ms; flex-direction: row-reverse;">
+                <div class="avatar-container">
+                    <div class="avatar glow-primary">
+                        <img src="../assets/images/designer-avatar.jpg" alt="Reshma" class="avatar">
+                    </div>
+                </div>
+                <div class="bubble-content bubble-designer">
+                    <div class="speaker-name text-primary">Reshma • Lead Product Designer</div>
+                    <div class="text-sm leading-relaxed space-y-3">
+                        <p>I built the narrative around three pillars — the intersection of Business Mandate and User
+                            Reality:</p>
+                        <div class="space-y-3 mt-3">
+                            <div class="flex gap-3 items-start">
+                                <div class="w-8 h-8 rounded-full flex items-center justify-center text-primary font-bold"
+                                    style="background-color: hsla(var(--primary), 0.2);">1</div>
+                                <div>
+                                    <div class="font-semibold">Business Objective: Speed to Market</div>
+                                    <div class="text-sm text-muted-foreground">Compress the 16-25 week timeline down to
+                                        8 weeks</div>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 items-start">
+                                <div class="w-8 h-8 rounded-full flex items-center justify-center text-primary font-bold"
+                                    style="background-color: hsla(var(--primary), 0.2);">2</div>
+                                <div>
+                                    <div class="font-semibold">Design Objective: Solve the "80% Problem"</div>
+                                    <div class="text-sm text-muted-foreground">Shift cognitive load from data
+                                        reconciliation to strategic content supervision</div>
+                                </div>
+                            </div>
+                            <div class="flex gap-3 items-start">
+                                <div class="w-8 h-8 rounded-full flex items-center justify-center text-accent font-bold"
+                                    style="background-color: hsla(var(--accent), 0.2);">3</div>
+                                <div>
+                                    <div class="font-semibold">Strategic Goal: Trust as a Feature</div>
+                                    <div class="text-sm text-muted-foreground">In a regulated environment, trust isn't a
+                                        benefit — it's an absolute necessity</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Preview Section (Condensed) -->
+            <div class="section-divider animate-fade-up" style="animation-delay: 4400ms;">
+                <div class="divider-line"></div>
+                <span class="px-4 py-2 glass rounded-full text-sm text-muted-foreground">Results & Impact</span>
+                <div class="divider-line"></div>
+            </div>
+
+            <!-- Outcomes Table/Grid -->
+            <div class="grid grid-cols-2 gap-3 my-4 animate-fade-up" style="animation-delay: 4550ms;">
+                <div class="glass rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-gradient-primary">68%</div>
+                    <div class="text-xs text-muted-foreground">Reduction in Timeline</div>
+                </div>
+                <div class="glass rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-gradient-primary">70%</div>
+                    <div class="text-xs text-muted-foreground">Manual Time Saved</div>
+                </div>
+                <div class="glass rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-gradient-accent">100%</div>
+                    <div class="text-xs text-muted-foreground">eCTD Compliance</div>
+                </div>
+                <div class="glass rounded-lg p-4 text-center">
+                    <div class="text-2xl font-bold text-gradient-accent">95%</div>
+                    <div class="text-xs text-muted-foreground">Data Table Accuracy</div>
+                </div>
+            </div>
+
+            <!-- Quote Box -->
+            <div class="highlight-box highlight-quote animate-fade-up" style="animation-delay: 4700ms;">
+                <i data-lucide="quote" class="text-primary"
+                    style="width: 20px; height: 20px; flex-shrink: 0; margin-top: 2px;"></i>
+                <div class="text-sm leading-relaxed">
+                    "This tool has fundamentally changed how we approach regulatory submissions. What used to take
+                    months of manual effort is now accomplished in weeks, allowing our team to focus on critical
+                    scientific analysis rather than document formatting."
+                    <div class="text-xs text-muted-foreground mt-2">— VP of Regulatory Affairs, Global Pharmaceutical
+                        Organization</div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Footer -->
+        <footer class="container py-16 text-center">
+            <div class="glass rounded-2xl p-8 max-w-2xl mx-auto">
+                <h3 class="text-xl font-bold mb-2">Thanks for reading! 🎙️</h3>
+                <p class="text-muted-foreground mb-4">
+                    This case study was reimagined as a podcast conversation to make the UX journey more engaging and
+                    personal.
+                </p>
+                <div class="flex justify-center flex-wrap gap-4 text-sm">
+                    <span class="tag-pill glass">Product Design</span>
+                    <span class="tag-pill glass">UX Research</span>
+                    <span class="tag-pill glass">AI Integration</span>
+                    <span class="tag-pill glass">Healthcare</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
